@@ -1,3 +1,2 @@
 # MegaPaint
-Demo
-Hey
+First project

@@ -143,7 +143,7 @@ function GetSellerTable(active,seller_code) {
                     age = "";
                 }
                 
-                if(seller_code == valueOfElement.seller_code){
+                if($('#sellerCode').val() == valueOfElement.seller_code){
                     tr = '<tr style="color: red;">'
                     focus = 'idfocus';
                 }else{
@@ -203,7 +203,7 @@ function GetSubmit(form) {
         GetSellerFormAction();
         $("#div_index").fadeIn(1000);
         localStorage.clear();
-        GetSellerTable("submit",active,shopCode);
+        GetSellerTable("submit",active,sellerCode);
         $('#from_edit').hide();
       },
     });
