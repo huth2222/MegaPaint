@@ -1,2 +1,3 @@
 # MegaPaint
 First project
+Hi
