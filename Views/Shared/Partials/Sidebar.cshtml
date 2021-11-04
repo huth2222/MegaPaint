@@ -1,0 +1,254 @@
+<aside class="main-sidebar main-sidebar-custom-mp sidebar-dark-primary-mp elevation-4">
+    <!-- Brand Logo -->
+    <a href="/Admin/Index" class="brand-link elevation-4">
+      <img src="~/AdminLTE-3.1.0/dist/img/toa2.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Mega-Paint</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+     
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          @if (HttpContextAccessor.HttpContext.Session.GetString("_LevelID") == "1")
+          {
+          <li id="nav_admin" class="nav-item">
+            <a href="#" id="m_admin" class="nav-link">
+              <i class="nav-icon fas fa-user-shield"></i>
+              <p>
+                Admin
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview bg-secondary" id="ul_admin">
+              <li class="nav-item">
+                <span style="cursor: pointer;" id="s_add_admin" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>เพิ่ม Admin account</p>
+                </span>
+              </li>
+              <li class="nav-item">
+                <span style="cursor: pointer;" id="s_edit_admin" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>แก้ไข/ลบ Admin account</p>
+                </span>
+              </li>              
+            </ul>
+          </li>
+          }
+          <li class="nav-header">การขาย</li>
+
+          <li id="nav_shop" class="nav-item">
+            <a href="#" id="m_shop" class="nav-link">
+              <i class="nav-icon fas fa-store"></i>
+              <p>
+                ร้านค้า
+                <i class="fas fa-angle-left right"></i>
+                @* <span class="badge badge-info right">6</span> *@
+              </p>
+            </a>
+            <ul class="nav nav-treeview bg-secondary" id="ul_shop">
+              <li class="nav-item">
+                <span style="cursor: pointer;" id="s_add_shop" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>เพิ่มร้านค้า</p>
+                </span>
+              </li>
+              <li class="nav-item">
+                <span style="cursor: pointer;" id="s_edit_shop" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>แก้ไข/ลบ ร้านค้า</p>
+                </span>
+              </li>              
+            </ul>
+          </li>
+
+          <li id="nav_seller" class="nav-item">
+            <a id="m_seller" href="#" class="nav-link">
+              <i class="nav-icon fas fa-balance-scale"></i>              
+              <p>
+                ผู้ขาย
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview bg-secondary" id="ul_seller">
+              <li class="nav-item">
+                <span style="cursor: pointer;" id="s_add_seller" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>เพิ่มผู้ขาย</p>
+                </span>
+              </li>
+              <li class="nav-item">
+                <span style="cursor: pointer;" id="s_edit_seller" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>แก้ไข/ลบ ผู้ขาย</p>
+                </span>
+              </li>              
+            </ul>
+          </li>
+
+          <li id="nav_product" class="nav-item">
+            <a id="m_product" href="#" class="nav-link">
+              <i class="nav-icon fas fa-fill-drip"></i> 
+              <p>
+                สินค้า
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview bg-secondary" id="ul_product">
+              <li class="nav-item">
+                <span style="cursor: pointer;" id="s_add_product" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>เพิ่มสินค้า</p>
+                </span>
+              </li>
+              <li class="nav-item">
+                <span style="cursor: pointer;" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>แก้ไข/ลบ สินค้า</p>
+                </span>
+              </li>              
+            </ul>
+          </li>
+          
+          <li class="nav-header">Report</li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                ยอดขาย
+                @* <span class="badge badge-info right">2</span> *@
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Stock สินค้า
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                อันดับสินค้าขายดี
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-envelope"></i>
+              <p>
+                Mailbox
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview bg-secondary">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>Inbox</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>Compose</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>Read</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Pages
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview bg-secondary">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>Invoice</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="~/AdminLTE-3.1.0/examples/profile.html" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>Profile</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="~/AdminLTE-3.1.0/examples/e-commerce.html" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>E-commerce</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="~/AdminLTE-3.1.0/examples/projects.html" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>Projects</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="~/AdminLTE-3.1.0/examples/project-add.html" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>Project Add</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="~/AdminLTE-3.1.0/examples/project-edit.html" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>Project Edit</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="~/AdminLTE-3.1.0/examples/project-detail.html" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>Project Detail</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="~/AdminLTE-3.1.0/examples/contacts.html" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>Contacts</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="~/AdminLTE-3.1.0/examples/faq.html" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>FAQ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="~/AdminLTE-3.1.0/examples/contact-us.html" class="nav-link">
+                  <i class="nav-icon fas fa-long-arrow-alt-right text-secondary"></i>
+                  <p>Contact us</p>
+                </a>
+              </li>
+            </ul>
+          </li>         
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+    <div class="sidebar-custom">
+      <span onclick="javascript:ControlSidebar()" class="btn btn-link"><i class="fas fa-cogs"></i></span>
+      <a href="#" class="btn btn-secondary hide-on-collapse pos-right">Help</a>
+    </div>
+    <!-- /.sidebar-custom -->
+  </aside>

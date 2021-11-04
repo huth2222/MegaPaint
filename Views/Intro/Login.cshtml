@@ -1,0 +1,81 @@
+@model Login_ViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"]  Mega-Paint</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/AdminLTE-3.1.0/plugins/fontawesome-free/css/all.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="~/AdminLTE-3.1.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- AdminLTE-3.1.0 style -->
+    <link rel="stylesheet" href="~/AdminLTE-3.1.0/dist/css/adminlte.min.css">
+</head>
+
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <!-- /.login-logo -->
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <a href="#" class="h1"><b>Mega-P</b>aint</a>
+            </div>
+            <div class="card-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+
+                <form id="form_submit" asp-action="Login" asp-controller="Intro" method="post">
+                    <div class="input-group mb-3">
+                        <input type="text" asp-for="username" class="form-control" placeholder="Employee code.">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" asp-for="password" class="form-control" placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <span asp-validation-for="msg" style="color: red;"></span>
+                    </div>
+                    
+
+                    <div class="social-auth-links text-center mt-2 mb-3">
+                        <button id="btn_submit" class="btn btn-block btn-info" style="height: 50px;">Login</button>
+                    </div>
+                </form>
+                <!-- /.social-auth-links -->
+
+                
+                <center><span asp-validation-for="password" style="color: red;"></span></center>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.login-box -->
+
+    <!-- jQuery -->
+    <script src="~/AdminLTE-3.1.0/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/AdminLTE-3.1.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/AdminLTE-3.1.0/dist/js/adminlte.min.js"></script>
+    <script src="~/js/Login/Login.js"></script>
+</body>
+
+</html>

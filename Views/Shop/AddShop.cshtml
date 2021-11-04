@@ -1,0 +1,177 @@
+@model MP_Shop
+@{
+    Layout = null;
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>เพิ่ม Shop</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><span class="text-primary">Shop</span></li>
+                    <li class="breadcrumb-item"><span class="text-primary">เพิ่ม Shop</span></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</section>
+
+
+<!-- Main content -->
+<section class="content">
+    <form asp-action="AddShop" id="form_shop" asp-controller="Shop" method="POST" enctype="multipart/form-data"
+        asp-antiforgery="true" target="_blank">
+        
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="form-group">
+
+                    <center>
+                        <input type="hidden" id="shopCode" value='@HttpContextAccessor.HttpContext.Session.GetString("_EditShopCode")'/>
+                        <img id="img0" alt="" width="120" src="/asset/img/add-shop.png"
+                            class="img-fluid img-thumbnail rounded-corners ion ion-person-add"
+                            onclick="javascript:selectImage()" style="cursor: pointer;height:120px;object-fit:cover;">
+                        <img id="imagePreview" alt="" width="120"
+                            class="img-fluid img-thumbnail rounded-corners ion ion-person-add"
+                            onclick="javascript:selectImage()" style="cursor: pointer;height:120px;object-fit:cover;">
+
+                    </center>
+                    <input type="file" hidden id="file" name="file" accept="image/x-png,image/jpg,image/jpeg">
+
+                </div>
+                <div class="card card-outline card-info">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label>ชื่อร้าน</label>
+                                <input type="text" asp-for="shop_name_th" class="form-control">
+                            </div>                                                     
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                <label>เลขที่</label>
+                                <input type="text" asp-for="address_no" class="form-control">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label>อาคาร</label>
+                                <input type="text" asp-for="building" class="form-control">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label>ห้อง</label>
+                                <input type="text" asp-for="room" class="form-control">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label>ซอย</label>
+                                <input type="text" asp-for="alley" class="form-control">
+                            </div>         
+                                               
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                <label>ถนน</label>
+                                <input type="text" asp-for="rood" class="form-control">
+                            </div>                            
+                            <div class="form-group col-md-3">
+                                    <label>จังหวัด</label>
+                                    <select asp-for="changwat_id" class="form-control">
+                                        <option style="background-color: gray;" value="">กรุณาเลือกจังหวัด</option>
+                                        @foreach (var itemChangwat in ViewBag.changwat)
+                                        {
+                                            <option value="@itemChangwat.changwat_id">@itemChangwat.changwat_name_th
+                                            </option>
+                                        }
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>อำเภอ</label>
+                                    <select asp-for="amphoe_id" class="form-control">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>ตำบล</label>
+                                    <select asp-for="tambon_id" class="form-control">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                        </div>
+                        <div class="row">                            
+                            <div class="form-group col-md-3">
+                                <label>รหัสไปรษณีย์</label>
+                                <input type="text" asp-for="zip_code" class="form-control">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label>เบอร์โทรร้าน</label>
+                                <input type="text" asp-for="tel" class="form-control">
+                            </div>
+                        </div>                        
+                    </div>
+                    <!-- /.card-header -->
+                </div>
+            </div>
+            <!-- /.col-->
+        </div>
+        <!-- ./row -->
+
+
+
+        <div class="form-group text-right">
+            <button type="button" id="btn_submit" style="width: 100px;" class="btn btn-primary">Add</button>
+        </div>
+        <div class="row">
+            <button type="button" hidden id="btn_alert" class="btn btn-primary" data-toggle="modal"
+                data-target="#exampleModal">
+                Launch demo modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">ยืนยันการบันทึก</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        @* <div class="modal-body">
+                            ...
+                            </div> *@
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cencel</button>
+                            <button type="button" onclick='javascript:GetSubmit("FormAdd");' class="btn btn-primary"
+                                data-dismiss="modal">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- ./row -->
+</section>
+
+<section id="account_list" class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12" style="font-size: 14px;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">รายชื่อผู้ดูแลระบบ</h3>
+                    </div>
+                    <div id="div_shopList" class="card-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/js/Shop/FucFormShop.js"></script>
+<script src="~/js/Shop/AddShop.js"></script>
+<script src="~/js/Shop/API.js"></script>
