@@ -1,5 +1,4 @@
 D:\Project\MegaPaint\bin\Debug\net5.0\appsettings.Development.json
-D:\Project\MegaPaint\bin\Debug\net5.0\appsettings.json
 D:\Project\MegaPaint\bin\Debug\net5.0\MegaPaint.exe
 D:\Project\MegaPaint\bin\Debug\net5.0\MegaPaint.deps.json
 D:\Project\MegaPaint\bin\Debug\net5.0\MegaPaint.runtimeconfig.json
