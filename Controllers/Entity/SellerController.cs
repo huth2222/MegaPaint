@@ -146,6 +146,7 @@ namespace MegaPaint.Controllers
                 room = model.MP_SellerPermanentAddress.room,
                 alley = model.MP_SellerPermanentAddress.alley,
                 rood = model.MP_SellerPermanentAddress.rood,
+                moo = model.MP_SellerPermanentAddress.moo,
                 changwat_id = model.MP_SellerPermanentAddress.changwat_id,
                 amphoe_id = model.MP_SellerPermanentAddress.amphoe_id,
                 tambon_id = model.MP_SellerPermanentAddress.tambon_id,
@@ -230,6 +231,142 @@ namespace MegaPaint.Controllers
             return RedirectToAction("Saving", "Active");
         }
 
+        public IActionResult EditSeller(string seller_code)
+        {
+            var GetSeller = _db.MP_Seller.Where(s => s.seller_code.Equals(seller_code)).FirstOrDefault();
+            Seller_ViewModel mainView = new Seller_ViewModel();
+            mainView.MT_Gender = _db.MT_Gender.ToList();
+            mainView.MT_Prefix = _db.MT_Prefix.ToList();
+            mainView.MP_View_Shop = _db.MP_View_Shop.ToList();
+            
+            ViewBag.Changwat = _db.MT_AddressChangwat.ToList();
+
+            if (GetSeller != null)
+            {
+                mainView.MP_Seller = GetSeller;
+                mainView.MP_SellerPermanentAddress = _db.MP_SellerPermanentAddress.Where(pm => pm.seller_code.Equals(seller_code)).FirstOrDefault();
+                mainView.MP_SellerPresentAddress = _db.MP_SellerPresentAddress.Where(ps => ps.seller_code.Equals(seller_code)).FirstOrDefault();
+                HttpContext.Session.SetString(SessionEditSellerCode, seller_code);
+            }
+            else
+            {
+                HttpContext.Session.SetString(SessionEditSellerCode, "empty");
+            }
+
+            return View(mainView);
+        }
+
+        [HttpPost]
+        [Obsolete]
+        public IActionResult EditSeller([FromForm] Seller_ViewModel model, IFormFile file)
+        {
+            string admin_code = HttpContext.Session.GetString("_AdminCode");
+
+            if (model.MP_Seller.mobile_number != null)
+            {
+                model.MP_Seller.mobile_number = model.MP_Seller.mobile_number.Replace("-", "").Trim();
+            }
+            else
+            {
+                model.MP_Seller.mobile_number = "";
+            }
+
+
+            if (model.MP_Seller.birthday.Year < 2000)
+            {
+                model.MP_Seller.birthday = model.MP_Seller.birthday.AddYears(543);
+            }
+            else if (model.MP_Seller.birthday.Year > 2500)
+            {
+                model.MP_Seller.birthday = model.MP_Seller.birthday.AddYears(-543);
+            }
+
+
+            var FindSeller = _db.MP_Seller.Where(s => s.seller_code.Equals(model.MP_Seller.seller_code)).FirstOrDefault();
+
+            string fileName = string.Empty;
+            string newFileName = string.Empty;
+            string inputName = "";
+            if (file != null)
+            {
+
+
+                fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                var oldName = Path.GetFileName(fileName);
+                //var uniqueFilename = Convert.ToString(Guid.NewGuid()); // สุ่มตัวลักษณะคำจำนวน 128 bit
+                var fileExtension = Path.GetExtension(fileName); // เก็บนามสกุลไฟล์
+                newFileName = model.MP_Seller.seller_code + fileExtension;
+                inputName = newFileName;
+                fileName = Path.Combine(_hostingEnvironment.WebRootPath, $@"data\seller\avatar") + $@"\{newFileName}";
+
+
+                using (FileStream fs = System.IO.File.Create(fileName))
+                {
+                    file.CopyTo(fs);
+                    fs.Flush();
+                }
+            }
+
+            if (inputName == "" && (model.MP_Seller.avatar != "" && model.MP_Seller.avatar != null))
+            {
+                inputName = model.MP_Seller.avatar;
+            }
+            else if (inputName == "" && (model.MP_Seller.avatar == "" || model.MP_Seller.avatar == null) && (FindSeller.avatar != "" && FindSeller.avatar != null))
+            {
+                var oldPath = Path.Combine(_hostingEnvironment.WebRootPath, $@"data\seller\avatar") + $@"\{FindSeller.avatar}"; //wwwroot/img/profile
+                FileInfo fi = new FileInfo(oldPath);
+                if (fi != null)
+                {
+                    System.IO.File.Delete(oldPath);
+                    fi.Delete();
+                }
+            }
+
+
+                FindSeller.seller_code = model.MP_Seller.seller_code;
+                FindSeller.username = model.MP_Seller.username;
+                FindSeller.password = model.MP_Seller.password;
+                FindSeller.change_password = model.MP_Seller.change_password;
+                FindSeller.avatar = inputName;
+                FindSeller.shop_code = model.MP_Seller.shop_code;
+                FindSeller.prefix_id = model.MP_Seller.prefix_id;
+                FindSeller.firstname = model.MP_Seller.firstname;
+                FindSeller.lastname = model.MP_Seller.lastname;
+                FindSeller.birthday = model.MP_Seller.birthday;
+                FindSeller.gender_id = model.MP_Seller.gender_id;
+                FindSeller.mobile_number = model.MP_Seller.mobile_number;
+                FindSeller.edit_by = admin_code;
+                FindSeller.edit_datetime = DateTime.Now;
+            try
+            {
+                _db.SaveChanges();
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+                var FindPm = _db.MP_SellerPermanentAddress.Where(pm => pm.seller_code.Equals(model.MP_Seller.seller_code)).FirstOrDefault();
+                FindPm.seller_code = model.MP_Seller.seller_code;
+                FindPm.address_no = model.MP_SellerPermanentAddress.address_no;
+                FindPm.building = model.MP_SellerPermanentAddress.building;
+                FindPm.room = model.MP_SellerPermanentAddress.room;
+                FindPm.alley = model.MP_SellerPermanentAddress.alley;
+                FindPm.rood = model.MP_SellerPermanentAddress.rood;
+                FindPm.moo = model.MP_SellerPermanentAddress.moo;
+                FindPm.changwat_id = model.MP_SellerPermanentAddress.changwat_id;
+                FindPm.amphoe_id = model.MP_SellerPermanentAddress.amphoe_id;
+                FindPm.tambon_id = model.MP_SellerPermanentAddress.tambon_id;
+                FindPm.zip_code = model.MP_SellerPermanentAddress.zip_code;
+                FindPm.tel = model.MP_SellerPermanentAddress.tel;
+
+
+// ทำต่อ -->>
+
+            //return Json("");
+            return RedirectToAction("Saving", "Active");
+        }
+
         [Route("/[controller]/[action]/{active}/{seller_code}")]
         [Obsolete]
         public JsonResult GetSellerTable([FromRoute] string active, [FromRoute] string seller_code)
@@ -266,133 +403,7 @@ namespace MegaPaint.Controllers
             return Json(result);
         }
 
-        public IActionResult EditShop(string shop_code)
-        {
-            //string account_code = HttpContext.Session.GetString("_EditCode");
-
-            var shopResult = _db.MP_Shop.Where(a => a.shop_code.Equals(shop_code)).FirstOrDefault();
-            HttpContext.Session.SetString(SessionEditSellerCode, "");
-            MP_Shop shop = new MP_Shop();
-
-            if (shopResult != null)
-            {
-                shop = shopResult;
-                ViewBag.shopCode = shopResult.shop_code;
-                ViewBag.Amphoe = _db.MT_AddressAmphoe.Where(a => a.changwat_id.Equals(shopResult.changwat_id)).ToList();
-                ViewBag.Tambon = _db.MT_AddressTambon.Where(t => t.amphoe_id.Equals(shopResult.amphoe_id)).ToList();
-            }
-            else
-            {
-                ViewBag.shopCode = "empty";
-                ViewBag.Amphoe = "";
-                ViewBag.Tambon = "";
-            }
-
-            ViewBag.changwat = _db.MT_AddressChangwat.ToList();
-            return View(shop);
-        }
-
-        [HttpPost]
-        [Obsolete]
-        public IActionResult EditShop([FromForm] MP_Shop model, IFormFile file)
-        {
-            string adminCode = HttpContext.Session.GetString("_AdminCode");
-            var shop = _db.MP_Shop.Where(a => a.shop_code.Equals(model.shop_code)).FirstOrDefault();
-
-            if (model.tel != null)
-            {
-                model.tel = model.tel.Replace("-", "");
-            }
-            else
-            {
-                model.tel = "";
-            }
-
-            string fileName = string.Empty;
-            string newFileName = string.Empty;
-            string inputName = "";
-            if (file != null)
-            {
-
-
-                fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-                var oldName = Path.GetFileName(fileName);
-                //var uniqueFilename = Convert.ToString(Guid.NewGuid()); // สุ่มตัวลักษณะคำจำนวน 128 bit
-                var fileExtension = Path.GetExtension(fileName); // เก็บนามสกุลไฟล์
-                newFileName = model.shop_code + fileExtension;
-                inputName = newFileName;
-                fileName = Path.Combine(_hostingEnvironment.WebRootPath, $@"data\shop\pic") + $@"\{newFileName}";
-
-
-                using (FileStream fs = System.IO.File.Create(fileName))
-                {
-                    file.CopyTo(fs);
-                    fs.Flush();
-                }
-            }
-
-            if (inputName == "" && (model.shop_picture != "" && model.shop_picture != null))
-            {
-                inputName = model.shop_picture;
-            }
-            else if (inputName == "" && (model.shop_picture == "" || model.shop_picture == null) && (shop.shop_picture != "" && shop.shop_picture != null))
-            {
-                var oldPath = Path.Combine(_hostingEnvironment.WebRootPath, $@"data\shop\pic") + $@"\{shop.shop_picture}"; //wwwroot/img/profile
-                FileInfo fi = new FileInfo(oldPath);
-                if (fi != null)
-                {
-                    System.IO.File.Delete(oldPath);
-                    fi.Delete();
-                }
-            }
-
-
-            model.edit_by = "";
-            model.edit_datetime = DateTime.Parse("1900-01-01");
-            if (model.edit_datetime.Year < 2000)
-            {
-                model.edit_datetime = model.edit_datetime.AddYears(543);
-            }
-            else if (model.edit_datetime.Year > 2500)
-            {
-                model.edit_datetime = model.edit_datetime.AddYears(-543);
-            }
-
-
-
-            shop.shop_name_th = model.shop_name_th;
-            shop.address_no = model.address_no;
-            shop.building = model.building;
-            shop.shop_picture = inputName;
-            shop.room = model.room;
-            shop.alley = model.alley;
-            shop.rood = model.rood;
-            shop.changwat_id = model.changwat_id;
-            shop.amphoe_id = model.amphoe_id;
-            shop.tambon_id = model.tambon_id;
-            shop.zip_code = model.zip_code;
-            shop.tel = model.tel;
-            shop.edit_by = adminCode;
-            shop.edit_datetime = model.edit_datetime;
-            shop.status = true;
-            try
-            {
-                _db.SaveChanges();
-            }
-            catch (System.Exception)
-            {
-
-                throw;
-            }
-
-
-
-
-
-
-            //return Json("");
-            return RedirectToAction("Saving", "Active");
-        }
+        
 
     }
 }

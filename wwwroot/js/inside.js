@@ -83,3 +83,20 @@ function GetPageAddSeller(page){
     });
 }
 
+function GetPageEditSeller(page){
+    $.ajax({
+        url: page,
+        type: 'GET',
+        success:function(data) {
+            $("#div_index").html(data);
+            if($('#MP_SellerPresentAddress_sam_permanent').prop('checked') == true){
+                $('#div_ps').hide();
+            }
+            GetSellerFormAction();
+            $("#div_index").fadeIn(1000);
+            localStorage.clear();
+            GetSellerTable("inside","edit","empty");
+            $('#page').val('edit_seller');
+        } 
+    });
+}

@@ -3,7 +3,7 @@ function GetEditSellerTable(seller_code){
     //alert('Hi');
     $('#div_index').hide();
     GetMenuEditSeller();
-    GetPageEditSeller("/Shop/EditSeller?seller_code="+  seller_code,seller_code);
+    GetPageEditSeller("/Seller/EditSeller?seller_code="+  seller_code,seller_code);
     $('#edit_content').show();
 }
 
@@ -156,7 +156,7 @@ function GetSellerTable(active,seller_code) {
                     '<td ' + h_tel + '>' + mobile_number + '</td>' +
                     '<td ' + h_gender + '>' + valueOfElement.gender_name_th + '</td>' +
                     '<td ' + h_age + '>' + age + '</td>' +                    
-                    '<td><span class="d-flex justify-content-around"> <span class="hover-del" onclick="GetDelAdminTable(' + "'" + valueOfElement.seller_code + "'," + "'" + fullname + "'" + ')"><i class="fas fa-trash-alt"></i></span><span class="hover-edit" onclick="GetEditAdminTable(' + "'" + valueOfElement.seller_code + "'," + "'" + fullname + "'" + ')"><i class="fas fa-edit"></i></span> </span></td>' +                  
+                    '<td><span class="d-flex justify-content-around"> <span class="hover-del" onclick="GetDelSellerTable(' + "'" + valueOfElement.seller_code + "'," + "'" + fullname + "'" + ')"><i class="fas fa-trash-alt"></i></span><span class="hover-edit" onclick="GetEditSellerTable(' + "'" + valueOfElement.seller_code + "'," + "'" + fullname + "'" + ')"><i class="fas fa-edit"></i></span> </span></td>' +                  
                 '</tr>';
                 n++;
             });

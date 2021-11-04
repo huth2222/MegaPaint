@@ -51,14 +51,14 @@ $("#s_add_seller").click(() => {
   }
 });
 
-$("#s_edit_shop").click(() => {
-  if ($("#page").val() != "edit_shop") {
+$("#s_edit_seller").click(() => {
+  if ($("#page").val() != "edit_seller") {
     $("#div_index").empty();
     // setTimeout(() => {
     //     GetAdminTable("edit","empty");
     // }, 500);
-    GetMenuEditShop();
-    GetPageEditShop("/Shop/EditShop");
+    GetMenuEditSeller();
+    GetPageEditSeller("/Seller/EditSeller");
   }
 });
 
@@ -124,6 +124,21 @@ function GetMenuAddSeller() {
   $("span").removeClass("active");
   //$('#m_shop').addClass('active');
   $("#s_add_seller").addClass("active");
+  setTimeout(() => {
+    if ($("#nav_admin").hasClass("menu-is-opening menu-open")) {
+      $("#m_admin").click();
+    }
+    if ($("#nav_shop").hasClass("menu-is-opening menu-open")) {
+      $("#m_shop").click();
+    }
+  }, 1000);
+}
+
+function GetMenuEditSeller() {
+  $("#div_index").hide();
+  $("span").removeClass("active");
+  //$('#m_shop').addClass('active');
+  $("#s_edit_seller").addClass("active");
   setTimeout(() => {
     if ($("#nav_admin").hasClass("menu-is-opening menu-open")) {
       $("#m_admin").click();

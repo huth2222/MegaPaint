@@ -1,0 +1,396 @@
+@model Seller_ViewModel
+@{
+    Layout = null;
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>แก้ไขผู้ขาย</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">ผู้ขาย</a></li>
+                    <li class="breadcrumb-item"><a href="#">แก้ไขผู้ขาย</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+
+
+@* <div class="card card-outline card-info"> *@
+<section class="content" id="edit_content">
+    <form asp-action="EditSeller" id="form_seller" asp-controller="Seller" method="POST" enctype="multipart/form-data"
+        asp-antiforgery="true" target="_blank">
+        <div class="form-group">
+            <center>
+                <input type="hidden" id="sellerCode"
+                    value='@HttpContextAccessor.HttpContext.Session.GetString("_EditSellerCode")' />
+                    <input type="hidden" asp-for="MP_Seller.seller_code">
+                <img id="img0" alt="" width="120" src="/asset/img/add-user.jpg"
+                    class="img-fluid img-thumbnail rounded-circle ion ion-person-add" onclick="javascript:selectImage()"
+                    style="cursor: pointer;height:120px;object-fit:cover;">
+                <img id="imagePreview" alt="" width="120"
+                    class="img-fluid img-thumbnail rounded-circle ion ion-person-add" onclick="javascript:selectImage()"
+                    style="cursor: pointer;height:120px;object-fit:cover;">
+
+            </center>
+            <input type="file" hidden id="file" name="file" accept="image/x-png,image/jpg,image/jpeg">
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="form-group col-12">
+                    <!-- content -->
+                    <div class="card card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">การเข้าสู่ระบบ</h3>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Username</label>
+                                    <input type="text" asp-for="MP_Seller.username" class="form-control">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Password</label>
+                                    <input type="password" asp-for="MP_Seller.password" class="form-control">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Confirm Password</label>
+                                    <input type="password" id="conf_password" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input"
+                                            asp-for="MP_Seller.change_password">
+                                        <label class="form-check-label" for="MP_Seller_change_password">เปลี่ยน Username
+                                            password
+                                            เมื่อเริ่มเข้าสู่ระบบ</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.content -->
+
+                    <!-- content -->
+                    <div class="card card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">ข้อมูลทั่วไป</h3>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    <label>ผู้ขายประจำร้าน</label>
+                                    <select asp-for="MP_Seller.shop_code" class="form-control">
+                                        <option value="">กรุณาเลือกร้าน</option>
+                                        @foreach (var itemShop in Model.MP_View_Shop)
+                                        {
+                                            <option value="@itemShop.shop_code">@itemShop.shop_name_th
+                                                (@itemShop.addr_name_th)</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-2">
+                                    <label>คำนำหน้านาม</label>
+                                    <select asp-for="MP_Seller.prefix_id" class="form-control">
+                                        <option value="">กรุณาเลือก</option>
+                                        @foreach (var itemPrefix in Model.MT_Prefix)
+                                        {
+                                            <option value="@itemPrefix.prefix_id">@itemPrefix.prefix_name_th</option>
+                                        }
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label>ชื่อ</label>
+                                    <input type="text" class="form-control" asp-for="MP_Seller.firstname">
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label>นามสกุล</label>
+                                    <input type="text" class="form-control" asp-for="MP_Seller.lastname">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-2">
+                                    <label>เพศ</label>
+                                    <select asp-for="MP_Seller.gender_id" class="form-control">
+                                        <option value="">กรุณาเลือกเพศ</option>
+                                        @foreach (var itemGender in Model.MT_Gender)
+                                        {
+                                            <option value="@itemGender.gender_id">@itemGender.gender_name_th</option>
+                                        }
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-5">
+                                    <label>วันเกิด</label>
+                                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                        <input type="text" asp-for="MP_Seller.birthday"
+                                            class="form-control datetimepicker-input" data-target="#reservationdate" />
+                                        <div class="input-group-append" data-target="#reservationdate"
+                                            data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="validationDefaultUsername">เบอร์โทรศัพท์</label>
+                                    <div class="input-group">
+                                        
+                                        <input type="text" asp-for="MP_Seller.mobile_number" class="form-control"
+                                            data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']"
+                                            data-mask>
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupPrepend2"><i
+                                                    class="fas fa-phone"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.content -->
+
+                    <!-- content -->
+                    <div class="card card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">ที่อยู่ตามทะเบียนบ้าน</h3>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>บ้านเลขที่</label>
+                                    <input type="text" class="form-control"
+                                        asp-for="MP_SellerPermanentAddress.address_no">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>อาคาร</label>
+                                    <input type="text" class="form-control"
+                                        asp-for="MP_SellerPermanentAddress.building">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>ห้อง</label>
+                                    <input type="text" class="form-control" asp-for="MP_SellerPermanentAddress.room">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>ถนน</label>
+                                    <input type="text" class="form-control" asp-for="MP_SellerPermanentAddress.rood">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>ซอย</label>
+                                    <input type="text" class="form-control" asp-for="MP_SellerPermanentAddress.alley">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>หมู่</label>
+                                    <input type="number" class="form-control" asp-for="MP_SellerPermanentAddress.moo">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>จังหวัด</label>
+                                    <select asp-for="MP_SellerPermanentAddress.changwat_id" class="form-control">
+                                        <option style="background-color: gray;" value="">กรุณาเลือกจังหวัด</option>
+                                        @foreach (var itemPmCw in ViewBag.Changwat)
+                                        {
+                                            <option value="@itemPmCw.changwat_id">@itemPmCw.changwat_name_th
+                                            </option>
+                                        }
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>อำเภอ</label>
+                                    <select asp-for="MP_SellerPermanentAddress.amphoe_id" class="form-control">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>ตำบล</label>
+                                    <select asp-for="MP_SellerPermanentAddress.tambon_id" class="form-control">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>รหัสไปรษณีย์</label>
+                                    <input type="number" class="form-control"
+                                        asp-for="MP_SellerPermanentAddress.zip_code">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>เบอร์โทรศัพท์บ้าน</label>
+                                    <input type="text" class="form-control" asp-for="MP_SellerPermanentAddress.tel">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.content -->
+
+                    <!-- content -->
+                    <div class="card card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                ที่อยู่ปัจจุบัน
+                            </h3>
+                        </div>
+                        <div class="card-header bg-light">
+                            <h3 class="card-title">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input"
+                                        asp-for="MP_SellerPresentAddress.sam_permanent">
+                                    <label class="form-check-label"
+                                        for="MP_SellerPresentAddress_sam_permanent">(ตามที่อยู่ทะเบียนบ้าน)</label>
+                                </div>
+                            </h3>
+                        </div>
+
+                        <div id="div_ps" class="card-body">
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>บ้านเลขที่</label>
+                                    <input type="text" class="form-control"
+                                        asp-for="MP_SellerPresentAddress.address_no">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>อาคาร</label>
+                                    <input type="text" class="form-control" asp-for="MP_SellerPresentAddress.building">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>ห้อง</label>
+                                    <input type="text" class="form-control" asp-for="MP_SellerPresentAddress.room">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>ถนน</label>
+                                    <input type="text" class="form-control" asp-for="MP_SellerPresentAddress.rood">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>ซอย</label>
+                                    <input type="text" class="form-control" asp-for="MP_SellerPresentAddress.alley">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>หมู่</label>
+                                    <input type="number" class="form-control" asp-for="MP_SellerPresentAddress.moo">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>จังหวัด</label>
+                                    <select asp-for="MP_SellerPresentAddress.changwat_id" class="form-control">
+                                        <option style="background-color: gray;" value="">กรุณาเลือกจังหวัด</option>
+                                        @foreach (var itemPsCw in ViewBag.Changwat)
+                                        {
+                                            <option value="@itemPsCw.changwat_id">@itemPsCw.changwat_name_th
+                                            </option>
+                                        }
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>อำเภอ</label>
+                                    <select asp-for="MP_SellerPresentAddress.amphoe_id" class="form-control">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>ตำบล</label>
+                                    <select asp-for="MP_SellerPresentAddress.tambon_id" class="form-control">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>รหัสไปรษณีย์</label>
+                                    <input type="number" class="form-control"
+                                        asp-for="MP_SellerPresentAddress.zip_code">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>เบอร์โทรศัพท์บ้าน</label>
+                                    <input type="text" class="form-control" asp-for="MP_SellerPresentAddress.tel">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.content -->
+
+
+                    <div class="form-group text-right">
+                        <button type="button" id="btn_submit" style="width: 100px;" class="btn btn-warning">Edit</button>
+                    </div>
+
+                </div>
+                <!-- /.col-->
+
+            </div>
+        </div>
+        <!-- ./row -->
+        <div class="row">
+            <button type="button" hidden id="btn_alert" class="btn btn-primary" data-toggle="modal"
+                data-target="#exampleModal">
+                Launch demo modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">ยืนยันการบันทึก</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        @* <div class="modal-body">
+                            ...
+                            </div> *@
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cencel</button>
+                            <button type="button" onclick='javascript:GetSubmit("FormAdd");' class="btn btn-primary"
+                                data-dismiss="modal">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+
+<section id="account_list" class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12" style="font-size: 14px;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">รายชื่อผู้ดูแลระบบ</h3>
+                    </div>
+                    <div id="div_sellerList" class="card-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/js/inputpicker.js"></script>
+<script src="~/js/Seller/FucFormSeller.js"></script>
+<script src="~/js/Seller/EditSeller.js"></script>
+<script src="~/js/Seller/API.js"></script>

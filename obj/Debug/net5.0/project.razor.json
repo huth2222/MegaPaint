@@ -15699,6 +15699,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Project\\MegaPaint\\Views\\Seller\\EditSeller.cshtml",
+      "TargetPath": "Views\\Seller\\EditSeller.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Project\\MegaPaint\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
