@@ -1,4 +1,14 @@
 $(document).ready(() => {
+
+  if($('#MP_SellerPermanentAddress_moo').val() == 0){
+    $('#MP_SellerPermanentAddress_moo').val('');
+  }
+
+  if($('#MP_SellerPresentAddress_moo').val() == 0){
+    $('#MP_SellerPresentAddress_moo').val('');
+  }
+
+
   if($('#MP_Seller_seller_code').val() == ''){
     $('#edit_content').hide();
   }else{
@@ -60,7 +70,23 @@ $(document).ready(() => {
     }    
   });
 
-  $("#imagePreview").hide();
+  // if($('#MP_Seller_avatar').val() == ""){
+  //   $("#imagePreview").hide();
+  // }else{
+  //   $("#img0").hide();
+  // }
+  if($('#MP_Seller_avatar').val() != ''){
+    $('#imagePreview').attr('src', '/data/seller/avatar/' + $('#MP_Seller_avatar').val());
+    $('#img0').hide();
+    $('#imagePreview').show();        
+}
+
+$('#clear_avatar').click(()=>{
+    $('#imagePreview').hide();
+    $('#img0').show();
+    $('#MP_Seller_avatar').val('');
+});
+  
   $("#MP_Seller_avatar").change(function () {
     configImageProfile(this);
   });
@@ -81,23 +107,6 @@ $(document).ready(() => {
 
   $("#btn_submit").click(() => {
     //alert($('#btn_submit').html());
-    if ($("#MP_Seller_username").val() == "") {
-      $("#MP_Seller_username").addClass("is-invalid");
-    } else {
-      $("#MP_Seller_username").removeClass("is-invalid");
-    }
-
-    if ($("#MP_Seller_password").val() == "") {
-      $("#MP_Seller_password").addClass("is-invalid");
-    } else {
-      $("#MP_Seller_password").removeClass("is-invalid");
-    }
-
-    if ($("#MP_Seller_password").val() == "") {
-      $("#MP_Seller_password").addClass("is-invalid");
-    } else {
-      $("#MP_Seller_password").removeClass("is-invalid");
-    }
 
     if ($("#MP_Seller_shop_code").val() == "") {
       $("#MP_Seller_shop_code").addClass("is-invalid");
@@ -154,13 +163,7 @@ $(document).ready(() => {
     }
 
     /*********************** */
-    if ($("#MP_Seller_username").val() == "") {
-      $("#MP_Seller_username").focus();
-    } else if ($("#MP_Seller_password").val() == "") {
-      $("#MP_Seller_password").focus();
-    } else if ($("#MP_Seller_password").val() == "") {
-      $("#MP_Seller_password").focus();
-    } else if ($("#MP_Seller_shop_code").val() == "") {
+    if ($("#MP_Seller_shop_code").val() == "") {
       $("#MP_Seller_shop_code").focus();
     } else if ($("#MP_Seller_prefix_id").val() == "") {
       $("#MP_Seller_prefix_id").focus();

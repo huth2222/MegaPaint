@@ -120,7 +120,7 @@ namespace MegaPaint.Controllers
                 lastname = model.MP_Seller.lastname,
                 birthday = model.MP_Seller.birthday,
                 gender_id = model.MP_Seller.gender_id,
-                mobile_number = model.MP_Seller.mobile_number,                
+                mobile_number = model.MP_Seller.mobile_number,
                 create_by = admin_code,
                 create_datetime = DateTime.Now,
                 edit_by = "", //Empty default
@@ -156,74 +156,77 @@ namespace MegaPaint.Controllers
             };
             try
             {
-                 _db.MP_SellerPermanentAddress.Add(pm);
-                 _db.SaveChanges();
+                _db.MP_SellerPermanentAddress.Add(pm);
+                _db.SaveChanges();
             }
             catch (System.Exception)
             {
-                
+
                 throw;
             }
 
-            if(model.MP_SellerPresentAddress.sam_permanent == true){
+            if (model.MP_SellerPresentAddress.sam_permanent == true)
+            {
                 MP_SellerPresentAddress ps = new MP_SellerPresentAddress
-            {
-                seller_code = seller_code,
-                address_no = model.MP_SellerPermanentAddress.address_no,
-                building = model.MP_SellerPermanentAddress.building,
-                room = model.MP_SellerPermanentAddress.room,
-                alley = model.MP_SellerPermanentAddress.alley,
-                rood = model.MP_SellerPermanentAddress.rood,
-                moo = model.MP_SellerPermanentAddress.moo,
-                changwat_id = model.MP_SellerPermanentAddress.changwat_id,
-                amphoe_id = model.MP_SellerPermanentAddress.amphoe_id,
-                tambon_id = model.MP_SellerPermanentAddress.tambon_id,
-                zip_code = model.MP_SellerPermanentAddress.zip_code,
-                tel = model.MP_SellerPermanentAddress.tel,
-                sam_permanent = model.MP_SellerPresentAddress.sam_permanent,
-                status = true
-            };
-            try
-            {
-                 _db.MP_SellerPresentAddress.Add(ps);
-                 _db.SaveChanges();
+                {
+                    seller_code = seller_code,
+                    address_no = model.MP_SellerPermanentAddress.address_no,
+                    building = model.MP_SellerPermanentAddress.building,
+                    room = model.MP_SellerPermanentAddress.room,
+                    alley = model.MP_SellerPermanentAddress.alley,
+                    rood = model.MP_SellerPermanentAddress.rood,
+                    moo = model.MP_SellerPermanentAddress.moo,
+                    changwat_id = model.MP_SellerPermanentAddress.changwat_id,
+                    amphoe_id = model.MP_SellerPermanentAddress.amphoe_id,
+                    tambon_id = model.MP_SellerPermanentAddress.tambon_id,
+                    zip_code = model.MP_SellerPermanentAddress.zip_code,
+                    tel = model.MP_SellerPermanentAddress.tel,
+                    sam_permanent = model.MP_SellerPresentAddress.sam_permanent,
+                    status = true
+                };
+                try
+                {
+                    _db.MP_SellerPresentAddress.Add(ps);
+                    _db.SaveChanges();
+                }
+                catch (System.Exception)
+                {
+
+                    throw;
+                }
             }
-            catch (System.Exception)
+            else
             {
-                
-                throw;
-            }
-            }else{
                 MP_SellerPresentAddress ps = new MP_SellerPresentAddress
-            {
-                seller_code = seller_code,
-                address_no = model.MP_SellerPresentAddress.address_no,
-                building = model.MP_SellerPresentAddress.building,
-                room = model.MP_SellerPresentAddress.room,
-                alley = model.MP_SellerPresentAddress.alley,
-                rood = model.MP_SellerPresentAddress.rood,
-                moo = model.MP_SellerPresentAddress.moo,
-                changwat_id = model.MP_SellerPresentAddress.changwat_id,
-                amphoe_id = model.MP_SellerPresentAddress.amphoe_id,
-                tambon_id = model.MP_SellerPresentAddress.tambon_id,
-                zip_code = model.MP_SellerPresentAddress.zip_code,
-                tel = model.MP_SellerPresentAddress.tel,
-                sam_permanent = model.MP_SellerPresentAddress.sam_permanent,
-                status = true
-            };
-            try
-            {
-                 _db.MP_SellerPresentAddress.Add(ps);
-                 _db.SaveChanges();
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
+                {
+                    seller_code = seller_code,
+                    address_no = model.MP_SellerPresentAddress.address_no,
+                    building = model.MP_SellerPresentAddress.building,
+                    room = model.MP_SellerPresentAddress.room,
+                    alley = model.MP_SellerPresentAddress.alley,
+                    rood = model.MP_SellerPresentAddress.rood,
+                    moo = model.MP_SellerPresentAddress.moo,
+                    changwat_id = model.MP_SellerPresentAddress.changwat_id,
+                    amphoe_id = model.MP_SellerPresentAddress.amphoe_id,
+                    tambon_id = model.MP_SellerPresentAddress.tambon_id,
+                    zip_code = model.MP_SellerPresentAddress.zip_code,
+                    tel = model.MP_SellerPresentAddress.tel,
+                    sam_permanent = model.MP_SellerPresentAddress.sam_permanent,
+                    status = true
+                };
+                try
+                {
+                    _db.MP_SellerPresentAddress.Add(ps);
+                    _db.SaveChanges();
+                }
+                catch (System.Exception)
+                {
+
+                    throw;
+                }
             }
 
-            
+
 
             //return Json("");
             //var GetSeller = _db.MP_Seller.Where(o => o.seller_code.Equals(seller_code)).FirstOrDefault();
@@ -238,14 +241,43 @@ namespace MegaPaint.Controllers
             mainView.MT_Gender = _db.MT_Gender.ToList();
             mainView.MT_Prefix = _db.MT_Prefix.ToList();
             mainView.MP_View_Shop = _db.MP_View_Shop.ToList();
-            
-            ViewBag.Changwat = _db.MT_AddressChangwat.ToList();
+
+            var GetPm = _db.MP_SellerPermanentAddress.Where(pm => pm.seller_code.Equals(seller_code)).FirstOrDefault();
+            var GetPs = _db.MP_SellerPresentAddress.Where(ps => ps.seller_code.Equals(seller_code)).FirstOrDefault();
+
+            if (GetPm != null)
+            {
+                ViewBag.PmChangwat = _db.MT_AddressChangwat.ToList();
+                ViewBag.PmAmphoe = _db.MT_AddressAmphoe.Where(ap => ap.changwat_id.Equals(GetPm.changwat_id)).ToList();
+                ViewBag.PmTambon = _db.MT_AddressTambon.Where(tb => tb.amphoe_id.Equals(GetPm.amphoe_id)).ToList();
+            }
+            else
+            {
+                ViewBag.PmChangwat = "";
+                ViewBag.PmAmphoe = "";
+                ViewBag.PmTambon = "";
+            }
+
+
+            if (GetPs != null)
+            {
+                ViewBag.PsChangwat = _db.MT_AddressChangwat.ToList();
+                ViewBag.PsAmphoe = _db.MT_AddressAmphoe.Where(ap => ap.changwat_id.Equals(GetPs.changwat_id)).ToList();
+                ViewBag.PsTambon = _db.MT_AddressTambon.Where(tb => tb.amphoe_id.Equals(GetPs.amphoe_id)).ToList();
+            }
+            else
+            {
+                ViewBag.PsChangwat = "";
+                ViewBag.PsAmphoe = "";
+                ViewBag.PsTambon = "";
+            }
+
 
             if (GetSeller != null)
             {
                 mainView.MP_Seller = GetSeller;
-                mainView.MP_SellerPermanentAddress = _db.MP_SellerPermanentAddress.Where(pm => pm.seller_code.Equals(seller_code)).FirstOrDefault();
-                mainView.MP_SellerPresentAddress = _db.MP_SellerPresentAddress.Where(ps => ps.seller_code.Equals(seller_code)).FirstOrDefault();
+                mainView.MP_SellerPermanentAddress = GetPm;
+                mainView.MP_SellerPresentAddress = GetPs;
                 HttpContext.Session.SetString(SessionEditSellerCode, seller_code);
             }
             else
@@ -283,6 +315,14 @@ namespace MegaPaint.Controllers
 
 
             var FindSeller = _db.MP_Seller.Where(s => s.seller_code.Equals(model.MP_Seller.seller_code)).FirstOrDefault();
+            if (model.MP_Seller.username == null)
+            {
+                model.MP_Seller.username = FindSeller.username;
+            }
+            if (model.MP_Seller.password == null)
+            {
+                model.MP_Seller.password = FindSeller.password;
+            }
 
             string fileName = string.Empty;
             string newFileName = string.Empty;
@@ -307,11 +347,11 @@ namespace MegaPaint.Controllers
                 }
             }
 
-            if (inputName == "" && (model.MP_Seller.avatar != "" && model.MP_Seller.avatar != null))
+            if (inputName == "" && model.MP_Seller.avatar != null)
             {
                 inputName = model.MP_Seller.avatar;
             }
-            else if (inputName == "" && (model.MP_Seller.avatar == "" || model.MP_Seller.avatar == null) && (FindSeller.avatar != "" && FindSeller.avatar != null))
+            else if (inputName == "" && model.MP_Seller.avatar == null && (FindSeller.avatar != "" && FindSeller.avatar != null))
             {
                 var oldPath = Path.Combine(_hostingEnvironment.WebRootPath, $@"data\seller\avatar") + $@"\{FindSeller.avatar}"; //wwwroot/img/profile
                 FileInfo fi = new FileInfo(oldPath);
@@ -323,20 +363,20 @@ namespace MegaPaint.Controllers
             }
 
 
-                FindSeller.seller_code = model.MP_Seller.seller_code;
-                FindSeller.username = model.MP_Seller.username;
-                FindSeller.password = model.MP_Seller.password;
-                FindSeller.change_password = model.MP_Seller.change_password;
-                FindSeller.avatar = inputName;
-                FindSeller.shop_code = model.MP_Seller.shop_code;
-                FindSeller.prefix_id = model.MP_Seller.prefix_id;
-                FindSeller.firstname = model.MP_Seller.firstname;
-                FindSeller.lastname = model.MP_Seller.lastname;
-                FindSeller.birthday = model.MP_Seller.birthday;
-                FindSeller.gender_id = model.MP_Seller.gender_id;
-                FindSeller.mobile_number = model.MP_Seller.mobile_number;
-                FindSeller.edit_by = admin_code;
-                FindSeller.edit_datetime = DateTime.Now;
+            FindSeller.seller_code = model.MP_Seller.seller_code;
+            FindSeller.username = model.MP_Seller.username.Trim();
+            FindSeller.password = model.MP_Seller.password.Trim();
+            FindSeller.change_password = model.MP_Seller.change_password;
+            FindSeller.avatar = inputName;
+            FindSeller.shop_code = model.MP_Seller.shop_code;
+            FindSeller.prefix_id = model.MP_Seller.prefix_id;
+            FindSeller.firstname = model.MP_Seller.firstname.Trim();
+            FindSeller.lastname = model.MP_Seller.lastname.Trim();
+            FindSeller.birthday = model.MP_Seller.birthday;
+            FindSeller.gender_id = model.MP_Seller.gender_id;
+            FindSeller.mobile_number = model.MP_Seller.mobile_number.Trim();
+            FindSeller.edit_by = admin_code;
+            FindSeller.edit_datetime = DateTime.Now;
             try
             {
                 _db.SaveChanges();
@@ -346,22 +386,75 @@ namespace MegaPaint.Controllers
 
                 throw;
             }
-                var FindPm = _db.MP_SellerPermanentAddress.Where(pm => pm.seller_code.Equals(model.MP_Seller.seller_code)).FirstOrDefault();
-                FindPm.seller_code = model.MP_Seller.seller_code;
-                FindPm.address_no = model.MP_SellerPermanentAddress.address_no;
-                FindPm.building = model.MP_SellerPermanentAddress.building;
-                FindPm.room = model.MP_SellerPermanentAddress.room;
-                FindPm.alley = model.MP_SellerPermanentAddress.alley;
-                FindPm.rood = model.MP_SellerPermanentAddress.rood;
-                FindPm.moo = model.MP_SellerPermanentAddress.moo;
-                FindPm.changwat_id = model.MP_SellerPermanentAddress.changwat_id;
-                FindPm.amphoe_id = model.MP_SellerPermanentAddress.amphoe_id;
-                FindPm.tambon_id = model.MP_SellerPermanentAddress.tambon_id;
-                FindPm.zip_code = model.MP_SellerPermanentAddress.zip_code;
-                FindPm.tel = model.MP_SellerPermanentAddress.tel;
+            var FindPm = _db.MP_SellerPermanentAddress.Where(pm => pm.seller_code.Equals(model.MP_Seller.seller_code)).FirstOrDefault();
+            FindPm.seller_code = model.MP_Seller.seller_code;
+            FindPm.address_no = model.MP_SellerPermanentAddress.address_no;
+            FindPm.building = model.MP_SellerPermanentAddress.building;
+            FindPm.room = model.MP_SellerPermanentAddress.room;
+            FindPm.alley = model.MP_SellerPermanentAddress.alley;
+            FindPm.rood = model.MP_SellerPermanentAddress.rood;
+            FindPm.moo = model.MP_SellerPermanentAddress.moo;
+            FindPm.changwat_id = model.MP_SellerPermanentAddress.changwat_id;
+            FindPm.amphoe_id = model.MP_SellerPermanentAddress.amphoe_id;
+            FindPm.tambon_id = model.MP_SellerPermanentAddress.tambon_id;
+            FindPm.zip_code = model.MP_SellerPermanentAddress.zip_code;
+            //FindPm.tel = model.MP_SellerPermanentAddress.tel.Trim();
+            try
+            {
+                _db.SaveChanges();
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+
+            var FindPs = _db.MP_SellerPresentAddress.Where(ps => ps.seller_code.Equals(model.MP_Seller.seller_code)).FirstOrDefault();
+            if (model.MP_SellerPresentAddress.sam_permanent == true)
+            {
+                FindPs.seller_code = model.MP_Seller.seller_code;
+                FindPs.address_no = model.MP_SellerPermanentAddress.address_no;
+                FindPs.building = model.MP_SellerPermanentAddress.building;
+                FindPs.room = model.MP_SellerPermanentAddress.room;
+                FindPs.alley = model.MP_SellerPermanentAddress.alley;
+                FindPs.rood = model.MP_SellerPermanentAddress.rood;
+                FindPs.moo = model.MP_SellerPermanentAddress.moo;
+                FindPs.changwat_id = model.MP_SellerPermanentAddress.changwat_id;
+                FindPs.amphoe_id = model.MP_SellerPermanentAddress.amphoe_id;
+                FindPs.tambon_id = model.MP_SellerPermanentAddress.tambon_id;
+                FindPs.zip_code = model.MP_SellerPermanentAddress.zip_code;
+                FindPs.tel = model.MP_SellerPermanentAddress.tel;
+                FindPs.sam_permanent = true;
+            }
+            else
+            {
+                FindPs.seller_code = model.MP_Seller.seller_code;
+                FindPs.address_no = model.MP_SellerPresentAddress.address_no;
+                FindPs.building = model.MP_SellerPresentAddress.building;
+                FindPs.room = model.MP_SellerPresentAddress.room;
+                FindPs.alley = model.MP_SellerPresentAddress.alley;
+                FindPs.rood = model.MP_SellerPresentAddress.rood;
+                FindPs.moo = model.MP_SellerPresentAddress.moo;
+                FindPs.changwat_id = model.MP_SellerPresentAddress.changwat_id;
+                FindPs.amphoe_id = model.MP_SellerPresentAddress.amphoe_id;
+                FindPs.tambon_id = model.MP_SellerPresentAddress.tambon_id;
+                FindPs.zip_code = model.MP_SellerPresentAddress.zip_code;
+                FindPs.tel = model.MP_SellerPresentAddress.tel;
+                FindPs.sam_permanent = false;
+            }
+
+            try
+            {
+                _db.SaveChanges();
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
 
 
-// ทำต่อ -->>
+            // ทำต่อ -->>
 
             //return Json("");
             return RedirectToAction("Saving", "Active");
@@ -403,7 +496,7 @@ namespace MegaPaint.Controllers
             return Json(result);
         }
 
-        
+
 
     }
 }

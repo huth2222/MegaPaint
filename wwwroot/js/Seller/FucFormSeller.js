@@ -137,7 +137,7 @@ function GetSellerTable(active,seller_code) {
                     mobile_number = valueOfElement.mobile_number.substring(0,3) + '-' + valueOfElement.mobile_number.substring(3,6) + '-' + valueOfElement.mobile_number.substring(6,10) + (valueOfElement.mobile_number.substring(10) == '' ? '' : '#' + valueOfElement.mobile_number.substring(10));
                 }
 
-                if(valueOfElement.age != 0){
+                if(valueOfElement.age > 0){
                     age = valueOfElement.age.toString();
                 }else{
                     age = "";
@@ -199,13 +199,16 @@ function GetSubmit(form) {
       url: formAction,
       type: "GET",
       success: function (data) {
-        $("#div_index").html(data);
+        $("#div_index").html(data); 
+        $('#edit_content').hide();       
         GetSellerFormAction();
         $("#div_index").fadeIn(1000);
         localStorage.clear();
         GetSellerTable("submit",active,sellerCode);
-        $('#from_edit').hide();
       },
     });
+
+        
+    
   }, 1000);  
 }

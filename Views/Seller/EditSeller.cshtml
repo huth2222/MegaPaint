@@ -36,8 +36,9 @@
                 <img id="imagePreview" alt="" width="120"
                     class="img-fluid img-thumbnail rounded-circle ion ion-person-add" onclick="javascript:selectImage()"
                     style="cursor: pointer;height:120px;object-fit:cover;">
-
+            <br><b id="clear_avatar" class="clear-avatar">ลบรูปประจำตัว</b>
             </center>
+            <input type="hidden" asp-for="MP_Seller.avatar">
             <input type="file" hidden id="file" name="file" accept="image/x-png,image/jpg,image/jpeg">
         </div>
         <div class="container-fluid">
@@ -206,7 +207,7 @@
                                     <label>จังหวัด</label>
                                     <select asp-for="MP_SellerPermanentAddress.changwat_id" class="form-control">
                                         <option style="background-color: gray;" value="">กรุณาเลือกจังหวัด</option>
-                                        @foreach (var itemPmCw in ViewBag.Changwat)
+                                        @foreach (var itemPmCw in ViewBag.PmChangwat)
                                         {
                                             <option value="@itemPmCw.changwat_id">@itemPmCw.changwat_name_th
                                             </option>
@@ -216,13 +217,21 @@
                                 <div class="form-group col-md-4">
                                     <label>อำเภอ</label>
                                     <select asp-for="MP_SellerPermanentAddress.amphoe_id" class="form-control">
-                                        <option value=""></option>
+                                        @foreach (var itemPmAp in ViewBag.PmAmphoe)
+                                        {
+                                            <option value="@itemPmAp.amphoe_id">@itemPmAp.amphoe_name_th
+                                            </option>
+                                        }
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>ตำบล</label>
                                     <select asp-for="MP_SellerPermanentAddress.tambon_id" class="form-control">
-                                        <option value=""></option>
+                                        @foreach (var itemPmTb in ViewBag.PmTambon)
+                                        {
+                                            <option value="@itemPmTb.tambon_id">@itemPmTb.tambon_name_th
+                                            </option>
+                                        }
                                     </select>
                                 </div>
                             </div>
@@ -294,7 +303,7 @@
                                     <label>จังหวัด</label>
                                     <select asp-for="MP_SellerPresentAddress.changwat_id" class="form-control">
                                         <option style="background-color: gray;" value="">กรุณาเลือกจังหวัด</option>
-                                        @foreach (var itemPsCw in ViewBag.Changwat)
+                                        @foreach (var itemPsCw in ViewBag.PsChangwat)
                                         {
                                             <option value="@itemPsCw.changwat_id">@itemPsCw.changwat_name_th
                                             </option>
@@ -304,13 +313,21 @@
                                 <div class="form-group col-md-4">
                                     <label>อำเภอ</label>
                                     <select asp-for="MP_SellerPresentAddress.amphoe_id" class="form-control">
-                                        <option value=""></option>
+                                        @foreach (var itemPsAp in ViewBag.PsAmphoe)
+                                        {
+                                            <option value="@itemPsAp.amphoe_id">@itemPsAp.amphoe_name_th
+                                            </option>
+                                        }
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>ตำบล</label>
                                     <select asp-for="MP_SellerPresentAddress.tambon_id" class="form-control">
-                                        <option value=""></option>
+                                        @foreach (var itemPsTb in ViewBag.PsTambon)
+                                        {
+                                            <option value="@itemPsTb.tambon_id">@itemPsTb.tambon_name_th
+                                            </option>
+                                        }
                                     </select>
                                 </div>
                             </div>
@@ -362,7 +379,7 @@
                             </div> *@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cencel</button>
-                            <button type="button" onclick='javascript:GetSubmit("FormAdd");' class="btn btn-primary"
+                            <button type="button" onclick='javascript:GetSubmit("FormEdit");' class="btn btn-primary"
                                 data-dismiss="modal">Save</button>
                         </div>
                     </div>

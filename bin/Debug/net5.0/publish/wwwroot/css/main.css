@@ -1,0 +1,39 @@
+/* .card-title{
+    color: darkblue;
+} */
+html{
+    min-height: 102%;
+}
+.hover-del{
+    color: red;
+}
+
+.hover-edit{
+    color: darkblue;
+}
+
+.hover-del :hover{
+    cursor:pointer;
+    color: darkorange;
+}
+
+.hover-edit :hover{
+    cursor:pointer;
+    color: darkorange;
+}
+
+.clear-avatar{
+    color: darkblue;
+}
+.clear-avatar:hover{
+    cursor:pointer;
+    color: red;
+}
+
+.main-sidebar-custom-mp{
+    background-color: #15646b;    
+}
+
+.sidebar-dark-primary-mp{
+    background-color: #15646b;
+}
