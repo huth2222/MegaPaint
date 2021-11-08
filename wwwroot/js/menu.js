@@ -63,6 +63,16 @@ $("#s_edit_seller").click(() => {
 });
 
 
+/**************** Form Product */
+$("#s_pd_type").click(() => {
+  if ($("#page").val() != "pd_type") {
+    $("#div_index").empty();
+    GetMenuAddPdType();
+    GetPageAddPdType("/Product/Type");
+  }
+});
+
+
 
   
   /*vvv*********************** Active class */
@@ -80,6 +90,9 @@ function GetMenuAddAdmin() {
     if ($("#nav_shop").hasClass("menu-is-opening menu-open")) {
       $("#m_shop").click();
     }
+    if ($("#nav_seller").hasClass("menu-is-opening menu-open")) {
+      $("#m_seller").click();
+    }
   }, 1000);
 }
 
@@ -91,6 +104,9 @@ function GetMenuEditAdmin() {
   setTimeout(() => {
     if ($("#nav_shop").hasClass("menu-is-opening menu-open")) {
       $("#m_shop").click();
+    }
+    if ($("#nav_seller").hasClass("menu-is-opening menu-open")) {
+      $("#m_seller").click();
     }
   }, 1000);
 }
@@ -104,6 +120,9 @@ function GetMenuAddShop() {
     if ($("#nav_admin").hasClass("menu-is-opening menu-open")) {
       $("#m_admin").click();
     }
+    if ($("#nav_seller").hasClass("menu-is-opening menu-open")) {
+      $("#m_seller").click();
+    }
   }, 1000);
 }
 
@@ -115,6 +134,9 @@ function GetMenuEditShop() {
   setTimeout(() => {
     if ($("#nav_admin").hasClass("menu-is-opening menu-open")) {
       $("#m_admin").click();
+    }
+    if ($("#nav_seller").hasClass("menu-is-opening menu-open")) {
+      $("#m_seller").click();
     }
   }, 1000);
 }
@@ -139,6 +161,21 @@ function GetMenuEditSeller() {
   $("span").removeClass("active");
   //$('#m_shop').addClass('active');
   $("#s_edit_seller").addClass("active");
+  setTimeout(() => {
+    if ($("#nav_admin").hasClass("menu-is-opening menu-open")) {
+      $("#m_admin").click();
+    }
+    if ($("#nav_shop").hasClass("menu-is-opening menu-open")) {
+      $("#m_shop").click();
+    }
+  }, 1000);
+}
+
+function GetMenuAddPdType() {
+  $("#div_index").hide();
+  $("span").removeClass("active");
+  //$('#m_shop').addClass('active');
+  $("#s_pd_type").addClass("active");
   setTimeout(() => {
     if ($("#nav_admin").hasClass("menu-is-opening menu-open")) {
       $("#m_admin").click();

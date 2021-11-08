@@ -83,3 +83,5 @@ D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Shop\EditShop.cshtml.g.cs
 D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Seller\AddSeller.cshtml.g.cs
 D:\Project\MegaPaint\bin\Debug\net5.0\appsettings.json
 D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Seller\EditSeller.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Product\AddCategory.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Product\Type.cshtml.g.cs

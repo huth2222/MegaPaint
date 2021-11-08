@@ -1,4 +1,7 @@
 $(document).ready(() => {
+  if($('#BdYear').val() == '0'){
+    $('#MP_Seller_birthday').val('');
+  }
 
   if($('#MP_SellerPermanentAddress_moo').val() == 0){
     $('#MP_SellerPermanentAddress_moo').val('');

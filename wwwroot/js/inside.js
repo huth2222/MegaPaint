@@ -6,7 +6,7 @@ function GetPageAddAdmin(page){
         success:function(data) {
             $("#div_index").html(data);
             GetAdminFormAction();
-            $("#div_index").fadeIn(1000);
+            $("#div_index").slideDown();
             localStorage.clear();
             GetAdminTable("add","empty");
             $('#page').val('add_admin');
@@ -27,7 +27,7 @@ function GetPageEditAdmin(page,account){
             if(account == "empty"){
                 $('#edit_content').hide();
             }            
-            $("#div_index").fadeIn(1000);
+            $("#div_index").slideDown();
             localStorage.clear();
             GetAdminFormAction();
             GetAdminTable("edit",account);
@@ -44,7 +44,7 @@ function GetPageAddShop(page){
         success:function(data) {
             $("#div_index").html(data);
             GetShopFormAction();
-            $("#div_index").fadeIn(1000);
+            $("#div_index").fadeTo( "slow", 1 );
             localStorage.clear();
             GetShopTable("inside","add","empty");
             $('#page').val('add_shop');
@@ -59,7 +59,7 @@ function GetPageEditShop(page){
         success:function(data) {
             $("#div_index").html(data);
             GetShopFormAction();
-            $("#div_index").fadeIn(1000);
+            $("#div_index").fadeTo( "slow", 1 );
             localStorage.clear();
             GetShopTable("inside","edit","empty");
             $('#page').val('edit_shop');
@@ -75,7 +75,7 @@ function GetPageAddSeller(page){
         success:function(data) {
             $("#div_index").html(data);
             GetSellerFormAction();
-            $("#div_index").fadeIn(1000);
+            $("#div_index").fadeTo( "slow", 1 );
             localStorage.clear();
             GetSellerTable("inside","add","empty");
             $('#page').val('add_seller');
@@ -93,10 +93,25 @@ function GetPageEditSeller(page){
                 $('#div_ps').hide();
             }
             GetSellerFormAction();
-            $("#div_index").fadeIn(1000);
+            $("#div_index").fadeTo( "slow", 1 );
             localStorage.clear();
             GetSellerTable("inside","edit","empty");
             $('#page').val('edit_seller');
+        } 
+    });
+}
+
+function GetPageAddPdType(page){
+    $.ajax({
+        url: page,
+        type: 'GET',
+        success:function(data) {
+            $("#div_index").html(data);
+            //GetSellerFormAction();
+            $("#div_index").fadeTo( "slow", 1 );
+            localStorage.clear();
+            //GetSellerTable("inside","edit","empty");
+            $('#page').val('pd_type');
         } 
     });
 }

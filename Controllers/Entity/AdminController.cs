@@ -9,6 +9,7 @@ using MegaPaint.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
+using System.Globalization;
 
 namespace MegaPaint.Controllers
 {
@@ -75,10 +76,15 @@ namespace MegaPaint.Controllers
                 model.MP_Admin.mobile_number = "";
             }
 
-            AdminProfile_ViewModel model1 = model;
-            if (model1.MP_Admin.birthday.Year <= 1900)
+            if (model.MP_Admin.birthday.Year <= 600)
             {
                 model.MP_Admin.birthday = DateTime.Parse("1900-01-01");
+            }else if (model.MP_Admin.birthday.Year <= 1900)
+            {
+                model.MP_Admin.birthday = model.MP_Admin.birthday.AddYears(543);
+            }else if (model.MP_Admin.birthday.Year > 2500)
+            {
+                model.MP_Admin.birthday = model.MP_Admin.birthday.AddYears(-543);
             }
 
 
@@ -194,6 +200,14 @@ namespace MegaPaint.Controllers
             AdminProfile_ViewModel mainView = new AdminProfile_ViewModel();
             mainView.MT_Prefix = _db.MT_Prefix.ToList();
             mainView.MT_Gender = _db.MT_Gender.ToList();
+            if(accountResult == null){
+                ViewBag.BdYear = 0;
+            }
+            else if(accountResult.birthday.Year <= 1900){
+                ViewBag.BdYear = 0;
+            }else{
+                ViewBag.BdYear = 1;
+            }
 
             if (accountResult != null)
             {
@@ -223,15 +237,20 @@ namespace MegaPaint.Controllers
             {
                 model.MP_Admin.mobile_number = "";
             }
+            
+            CultureInfo culture = new CultureInfo("en-US");    
+            model.MP_Admin.birthday = Convert.ToDateTime(model.MP_Admin.birthday, culture); 
 
-            AdminProfile_ViewModel model1 = model;
-            if (model1.MP_Admin.birthday.Year <= 1900)
+            if (model.MP_Admin.birthday.Year <= 600)
             {
-                model.MP_Admin.birthday = DateTime.Parse("1900-01-01");
+                model.MP_Admin.birthday = Convert.ToDateTime("1900-01-01", culture);
+            }else if (model.MP_Admin.birthday.Year <= 1900)
+            {
+                model.MP_Admin.birthday = model.MP_Admin.birthday.AddYears(543);
+            }else if (model.MP_Admin.birthday.Year > 2500)
+            {
+                model.MP_Admin.birthday = model.MP_Admin.birthday.AddYears(-543);
             }
-
-
-
 
 
             string fileName = string.Empty;

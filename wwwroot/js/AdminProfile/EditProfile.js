@@ -1,4 +1,8 @@
 $(document).ready(()=>{
+  if($('#BdYear').val() == 0){
+    $('#MP_Admin_birthday').val('');
+  }
+  
   
     if($('#MP_Admin_avatar').val() != ''){
         $('#imagePreview').attr('src', '/data/admin/profile/' + $('#MP_Admin_avatar').val());

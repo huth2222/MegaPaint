@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -242,6 +243,15 @@ namespace MegaPaint.Controllers
             mainView.MT_Prefix = _db.MT_Prefix.ToList();
             mainView.MP_View_Shop = _db.MP_View_Shop.ToList();
 
+            if(GetSeller == null){
+                ViewBag.BdYear = 0;
+            }
+            else if(GetSeller.birthday.Year <= 1900){
+                ViewBag.BdYear = 0;
+            }else{
+                ViewBag.BdYear = 1;
+            }
+
             var GetPm = _db.MP_SellerPermanentAddress.Where(pm => pm.seller_code.Equals(seller_code)).FirstOrDefault();
             var GetPs = _db.MP_SellerPresentAddress.Where(ps => ps.seller_code.Equals(seller_code)).FirstOrDefault();
 
@@ -303,8 +313,15 @@ namespace MegaPaint.Controllers
                 model.MP_Seller.mobile_number = "";
             }
 
+            CultureInfo culture = new CultureInfo("en-US");    
+            model.MP_Seller.birthday = Convert.ToDateTime(model.MP_Seller.birthday, culture); 
 
-            if (model.MP_Seller.birthday.Year < 2000)
+            
+            if (model.MP_Seller.birthday.Year < 600)
+            {
+                model.MP_Seller.birthday = Convert.ToDateTime("1900-01-01", culture);;
+            }
+            else if (model.MP_Seller.birthday.Year <= 1900)
             {
                 model.MP_Seller.birthday = model.MP_Seller.birthday.AddYears(543);
             }

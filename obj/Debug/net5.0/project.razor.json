@@ -15629,6 +15629,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Project\\MegaPaint\\Views\\Product\\AddCategory.cshtml",
+      "TargetPath": "Views\\Product\\AddCategory.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Project\\MegaPaint\\Views\\Admin\\Test.cshtml",
       "TargetPath": "Views\\Admin\\Test.cshtml",
       "FileKind": "mvc"
@@ -15646,6 +15651,11 @@
     {
       "FilePath": "d:\\Project\\MegaPaint\\Views\\Seller\\AddSeller.cshtml",
       "TargetPath": "Views\\Seller\\AddSeller.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\MegaPaint\\Views\\Product\\Type.cshtml",
+      "TargetPath": "Views\\Product\\Type.cshtml",
       "FileKind": "mvc"
     },
     {

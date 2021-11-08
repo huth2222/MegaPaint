@@ -26,6 +26,7 @@
     <form asp-action="EditSeller" id="form_seller" asp-controller="Seller" method="POST" enctype="multipart/form-data"
         asp-antiforgery="true" target="_blank">
         <div class="form-group">
+            <input type="hidden" id="BdYear" value="@ViewBag.BdYear" />
             <center>
                 <input type="hidden" id="sellerCode"
                     value='@HttpContextAccessor.HttpContext.Session.GetString("_EditSellerCode")' />

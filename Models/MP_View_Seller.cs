@@ -14,6 +14,8 @@ namespace MegaPaint.Models
         public string mobile_number { get; set; }
         public string gender_name_th { get; set; }
         public string permanent_addr { get; set; }
+        public string permanent_tel { get; set; }
         public string present_addr { get; set; }
+        public string present_tel { get; set; }
     }
 }
