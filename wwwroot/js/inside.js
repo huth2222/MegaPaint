@@ -101,17 +101,16 @@ function GetPageEditSeller(page){
     });
 }
 
-function GetPageAddPdType(page){
+function GetPagePdCategory(page){
     $.ajax({
         url: page,
         type: 'GET',
         success:function(data) {
             $("#div_index").html(data);
-            //GetSellerFormAction();
             $("#div_index").fadeTo( "slow", 1 );
             localStorage.clear();
-            //GetSellerTable("inside","edit","empty");
-            $('#page').val('pd_type');
+            GetCategoryTable();
+            $('#page').val('pd_category');
         } 
     });
 }

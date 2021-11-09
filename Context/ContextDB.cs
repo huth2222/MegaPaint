@@ -20,6 +20,7 @@ namespace MegaPaint.Context
         public DbSet<MT_Gender> MT_Gender {get;set;}
         public DbSet<MP_SellerPermanentAddress> MP_SellerPermanentAddress {get; set;}
         public DbSet<MP_SellerPresentAddress> MP_SellerPresentAddress {get; set;}     
-        public DbSet<MP_ProductType> MP_ProductType {get; set;}   
+        public DbSet<MP_ProductType> MP_ProductType {get; set;}  
+        public DbSet<MP_ProductCategory> MP_ProductCategory {get; set;}
     }
 }

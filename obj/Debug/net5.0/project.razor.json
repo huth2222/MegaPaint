@@ -15654,11 +15654,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Product\\Type.cshtml",
-      "TargetPath": "Views\\Product\\Type.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\Project\\MegaPaint\\Views\\Shared\\Partials\\Navbar.cshtml",
       "TargetPath": "Views\\Shared\\Partials\\Navbar.cshtml",
       "FileKind": "mvc"
@@ -15731,6 +15726,11 @@
     {
       "FilePath": "d:\\Project\\MegaPaint\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\MegaPaint\\Views\\Product\\Category.cshtml",
+      "TargetPath": "Views\\Product\\Category.cshtml",
       "FileKind": "mvc"
     },
     {

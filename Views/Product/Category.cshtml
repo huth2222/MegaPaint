@@ -1,4 +1,4 @@
-@model MP_ProductType
+@model MP_ProductCategory
 @{
     Layout = null;
 }
@@ -6,40 +6,53 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>เพิ่ม ประเภทสินค้า</h1>
+                <h1>หมวดหมู่สินค้า</h1>
             </div>
             <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><span class="text-primary">ประเภทสินค้า</span></li>
-                    <li class="breadcrumb-item"><span class="text-primary">เพิ่ม ประเภทสินค้า</span></li>
-                </ol>
+                <div class="btn-group btn-group-toggle float-sm-right" data-toggle="buttons">
+                  <label id="l_form_edit" class="btn bg-olive">
+                    <input type="radio" name="form_active" id="b_form_edit" autocomplete="off"> <i id="i_form_edit" class="fas fa-plus"></i> ฟอร์มแก้ไข
+                  </label>
+                  <label class="btn bg-olive">
+                    <input id="l_form_add" type="radio" name="form_active" id="b_form_add" autocomplete="off"> <i id="i_form_add" class="fas fa-plus"></i> ฟอร์มเพิ่ม
+                  </label>
+                  <label class="btn bg-olive" active hidden>
+                    <input type="radio" name="form_active" id="b_form_cancel" autocomplete="off" checked>Cancel
+                    
+                  </label>
+                  <input type="text" id="active_form">
+                </div>
+                @* <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><button type="button" id="b_form" class="btn btn-outline-warning btn-block" style="width: 50px;"><i id="i_form" class="fas fa-plus"></i> ฟอร์มแก้ไขหมวดหมู่สินค้า</button></li>
+                    <li class="breadcrumb-item"><button type="button" id="b_form" class="btn btn-outline-success btn-block"><i id="i_form" class="fas fa-plus"></i> ฟอร์มเพิ่มหมวดหมู่สินค้า</button></li>
+                </ol> *@
             </div>
         </div>
     </div>
     <!-- /.container-fluid -->
 </section>
 
-<input type="text" id="TypeCode" value="@ViewBag.typeCode">
+
 
 <!-- Main content -->
-<section class="content">
-    <form asp-action="AddType" id="form_type" asp-controller="Product" method="POST" enctype="multipart/form-data"
+<section class="content" id="section_cateory">
+    <form asp-action="Category" id="form_category" asp-controller="Product" method="POST" enctype="multipart/form-data"
         asp-antiforgery="true" target="_blank">
-        
+        <input type="text" asp-for="category_code">
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-outline card-info">
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-12">
-                                <label>ชื่อชนิดสินค้า</label>
-                                <input type="text" asp-for="type_name_th" class="form-control">
+                                <label>ชื่อหมวดหมู่สินค้า</label>
+                                <input type="text" asp-for="category_name_th" class="form-control">
                             </div>                                                     
                         </div>
                         <div class="row">
                             <div class="form-group col-12">
                                 <label>รายละเอียด/หมายเหตุ</label>
-                                <textarea asp-for="type_detail" class="form-control" rows="4" style="width: 100%;"></textarea>
+                                <textarea asp-for="category_detail" class="form-control" rows="4" style="width: 100%;"></textarea>
                             </div>                                           
                         </div>                                             
                     </div>
@@ -77,7 +90,7 @@
                             </div> *@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cencel</button>
-                            <button type="button" onclick='javascript:GetSubmit("FormAdd");' class="btn btn-primary"
+                            <button type="button" onclick='javascript:GetSubmit("Form");' class="btn btn-primary"
                                 data-dismiss="modal">Save</button>
                         </div>
                     </div>
@@ -96,7 +109,10 @@
                     <div class="card-header">
                         <h3 class="card-title">รายชื่อหมวดหมู่สินค้า</h3>
                     </div>
-                    <div id="div_shopList" class="card-body">
+                    <div class="card-body">
+                        <table id="t_categorylist" class="table table-bordered text-center">
+
+                        </table>
 
                     </div>
                 </div>
@@ -105,6 +121,5 @@
     </div>
 </section>
 
-<script src="~/js/Product/Type/Fuc.js"></script>
-<script src="~/js/Product/Type/TypeForm.js"></script>
-@* <script src="~/js/Product/TypeCategory/API.js"></script> *@
+<script src="~/js/Product/Category/Fuc.js"></script>
+<script src="~/js/Product/Category/Form.js"></script>

@@ -23,50 +23,45 @@ namespace MegaPaint.Controllers.Entity
             _hostingEnvironment = hostingEnvironment;
         }
 
-        public IActionResult Type(string fromform)
-        {
-            if(fromform == "AddEdit"){
-                string typeCode = HttpContext.Session.GetString("_EditCode");
-                ViewBag.typeCode = typeCode;
-            }else{
-                ViewBag.typeCode = "";
-            }
+        public IActionResult Category(string fromform)
+        {            
             return View();
         }
         [HttpPost]
-        public IActionResult Type([FromForm]MP_ProductType model)
+        public IActionResult Category([FromForm]MP_ProductCategory model)
         {
             string admin_code = HttpContext.Session.GetString("_AdminCode");
             
-            var GetLastId = _db.MP_ProductType.OrderByDescending(o => o.type_code).FirstOrDefault();
+            var GetLastId = _db.MP_ProductCategory.OrderByDescending(o => o.category_code).FirstOrDefault();
             int default_code = 0;
-            string type_code = "";
+            string category_code = "";
             if (GetLastId != null)
             {
-                default_code = int.Parse(GetLastId.type_code) + 1;
-                type_code = default_code.ToString("0000000000");
+                default_code = int.Parse(GetLastId.category_code) + 1;
+                category_code = default_code.ToString("0000");
             }
             else
             {
-                type_code = "0000000001";
+                category_code = "0000";
             }
 
             CultureInfo culture = new CultureInfo("en-US");
 
-            MP_ProductType type = new MP_ProductType
+            MP_ProductCategory category = new MP_ProductCategory
             {
-                type_code = type_code,
-                type_name_th = model.type_name_th,
-                type_detail = model.type_detail,
+                category_code = category_code,
+                category_name_th = model.category_name_th,
+                category_detail = model.category_detail,
                 create_by = admin_code,
                 create_datetime = DateTime.Now,
                 edit_by = "",
-                edit_datetime = Convert.ToDateTime("1900-01-01", culture)
+                edit_datetime = Convert.ToDateTime("1900-01-01", culture),
+                status = true
             };
 
             try
             {
-                 _db.MP_ProductType.Add(type);
+                 _db.MP_ProductCategory.Add(category);
                  _db.SaveChanges();
             }
             catch (System.Exception)
@@ -74,17 +69,24 @@ namespace MegaPaint.Controllers.Entity
                 
                 throw;
             }
-            var GetId = _db.MP_ProductType.OrderByDescending(o => o.type_code).FirstOrDefault();
+            var GetId = _db.MP_ProductCategory.OrderByDescending(o => o.category_code).FirstOrDefault();
 
-            HttpContext.Session.SetString(SessionEditCode, GetId.type_code);
+            HttpContext.Session.SetString(SessionEditCode, GetId.category_code);
             return RedirectToAction("Saving", "Active");
         }
 
-        [Route("/[controller]/[action]/{active}/{type_code}")]
+        [Route("/[controller]/[action]")]
         [Obsolete]
-        public JsonResult GetTypeTable([FromRoute] string active, [FromRoute] string type_code)
+        public JsonResult GetCategoryTable()
         {
-            return Json(_db.MP_ProductType.Where(p => p.status.Equals(true)).ToList());
+            return Json(_db.MP_ProductCategory.Where(p => p.status.Equals(true)).ToList());
+        }
+
+        [Route("/[controller]/[action]/{category_code}")]
+        [Obsolete]
+        public JsonResult GetCategoryId([FromRoute] string category_code)
+        {
+            return Json(_db.MP_ProductCategory.Where(p => p.status.Equals(true) && p.category_code.Equals(category_code)).FirstOrDefault());
         }
 
         public IActionResult AddCategory()

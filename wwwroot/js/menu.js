@@ -63,12 +63,12 @@ $("#s_edit_seller").click(() => {
 });
 
 
-/**************** Form Product */
-$("#s_pd_type").click(() => {
-  if ($("#page").val() != "pd_type") {
+/**************** Form Product Catetgory */
+$("#s_pd_category").click(() => {
+  if ($("#page").val() != "pd_category") {
     $("#div_index").empty();
-    GetMenuAddPdType();
-    GetPageAddPdType("/Product/Type");
+    GetMenuPdCategory();
+    GetPagePdCategory("/Product/Category");
   }
 });
 
@@ -171,17 +171,20 @@ function GetMenuEditSeller() {
   }, 1000);
 }
 
-function GetMenuAddPdType() {
+function GetMenuPdCategory() {
   $("#div_index").hide();
   $("span").removeClass("active");
   //$('#m_shop').addClass('active');
-  $("#s_pd_type").addClass("active");
+  $("#s_pd_category").addClass("active");
   setTimeout(() => {
     if ($("#nav_admin").hasClass("menu-is-opening menu-open")) {
       $("#m_admin").click();
     }
     if ($("#nav_shop").hasClass("menu-is-opening menu-open")) {
       $("#m_shop").click();
+    }
+    if ($("#nav_seller").hasClass("menu-is-opening menu-open")) {
+      $("#m_seller").click();
     }
   }, 1000);
 }
