@@ -1,5 +1,5 @@
 {
-  "FilePath": "d:\\Project\\MegaPaint\\MegaPaint.csproj",
+  "FilePath": "d:\\Project\\TOA\\MegaPaint\\MegaPaint.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,133 +15619,133 @@
   "RootNamespace": "MegaPaint",
   "Documents": [
     {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Admin\\AddAdminProfile.cshtml",
-      "TargetPath": "Views\\Admin\\AddAdminProfile.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Product\\AddCategory.cshtml",
-      "TargetPath": "Views\\Product\\AddCategory.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Admin\\Test.cshtml",
-      "TargetPath": "Views\\Admin\\Test.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Product\\CategoryTable.cshtml",
-      "TargetPath": "Views\\Product\\CategoryTable.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Shared\\Partials\\Sidebar.cshtml",
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Shared\\Partials\\Sidebar.cshtml",
       "TargetPath": "Views\\Shared\\Partials\\Sidebar.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Seller\\AddSeller.cshtml",
-      "TargetPath": "Views\\Seller\\AddSeller.cshtml",
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Shared\\Partials\\Navbar.cshtml",
-      "TargetPath": "Views\\Shared\\Partials\\Navbar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Intro\\ChangePassword.cshtml",
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Intro\\ChangePassword.cshtml",
       "TargetPath": "Views\\Intro\\ChangePassword.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Shared\\Partials\\Sidebar copy.cshtml",
-      "TargetPath": "Views\\Shared\\Partials\\Sidebar copy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Product\\Test.cshtml",
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Product\\Test.cshtml",
       "TargetPath": "Views\\Product\\Test.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Shared\\_Layout copy.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout copy.cshtml",
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Product\\AddCategory.cshtml",
+      "TargetPath": "Views\\Product\\AddCategory.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Admin\\EditAdminProfile.cshtml",
-      "TargetPath": "Views\\Admin\\EditAdminProfile.cshtml",
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Active\\Saving.cshtml",
+      "TargetPath": "Views\\Active\\Saving.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Shop\\EditShop.cshtml",
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Shop\\EditShop.cshtml",
       "TargetPath": "Views\\Shop\\EditShop.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Intro\\Login.cshtml",
-      "TargetPath": "Views\\Intro\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Shop\\AddShop.cshtml",
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Shop\\AddShop.cshtml",
       "TargetPath": "Views\\Shop\\AddShop.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Seller\\EditSeller.cshtml",
-      "TargetPath": "Views\\Seller\\EditSeller.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Shared\\_Layout.cshtml",
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Admin\\Index.cshtml",
-      "TargetPath": "Views\\Admin\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Home\\Index.cshtml",
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Product\\Category.cshtml",
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Admin\\Test.cshtml",
+      "TargetPath": "Views\\Admin\\Test.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Product\\CategoryTable.cshtml",
+      "TargetPath": "Views\\Product\\CategoryTable.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Shared\\Partials\\Navbar.cshtml",
+      "TargetPath": "Views\\Shared\\Partials\\Navbar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Seller\\EditSeller.cshtml",
+      "TargetPath": "Views\\Seller\\EditSeller.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Admin\\EditAdminProfile.cshtml",
+      "TargetPath": "Views\\Admin\\EditAdminProfile.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Admin\\AddAdminProfile.cshtml",
+      "TargetPath": "Views\\Admin\\AddAdminProfile.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Product\\Category.cshtml",
       "TargetPath": "Views\\Product\\Category.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Active\\Saving.cshtml",
-      "TargetPath": "Views\\Active\\Saving.cshtml",
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Intro\\Login.cshtml",
+      "TargetPath": "Views\\Intro\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Shared\\Partials\\Sidebar copy.cshtml",
+      "TargetPath": "Views\\Shared\\Partials\\Sidebar copy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Admin\\Index.cshtml",
+      "TargetPath": "Views\\Admin\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Seller\\AddSeller.cshtml",
+      "TargetPath": "Views\\Seller\\AddSeller.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Shared\\_Layout copy.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout copy.cshtml",
       "FileKind": "mvc"
     }
   ],

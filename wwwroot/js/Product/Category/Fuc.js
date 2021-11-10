@@ -1,5 +1,14 @@
 /************* Get Account table */
-function GetCategoryTable() {
+function GetCategoryTable(){
+  $.ajax({
+    url: "/Product/CategoryTable",
+    type: 'GET',
+    success:function(data) {
+        $("#account_list").html(data);
+    } 
+});
+}
+function GetCategoryTable_() {
     let local = location.origin + "/Product/GetCategoryTable";
     $.get(local,
         function (data, textStatus, jqXHR) {
@@ -20,7 +29,7 @@ function GetCategoryTable() {
             // }
 
 
-            let html =
+            let html = '<table id="t_categorylist" class="table table-bordered text-center" cellspacing="0" cellpadding="0">' +
                 '<thead>' +
                 '<tr class="bg-info" style="vertical-align: top;">' +
                 '<th style="width: 200px; vertical-align: top;">ชื่อหวมดหมู่สินค้า</th>' +
@@ -45,10 +54,10 @@ function GetCategoryTable() {
                 '</tr>';
                 n++;
             });
-            html += '</tbody>';
+            html += '</tbody></table>';
             // let dnd = ''+
    
-            $('#t_categorylist').html(html);
+            $('#account_list').html(html);
             // $('#table-2').html(dnd);
             
         },

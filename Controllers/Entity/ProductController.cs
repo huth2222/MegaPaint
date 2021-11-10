@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using MegaPaint.Context;
@@ -146,11 +147,9 @@ namespace MegaPaint.Controllers.Entity
         }
 
         public IActionResult CategoryTable()
-        {            
-            ViewBag.CategoryTable = _db.MP_ProductCategory.Where(p => p.status.Equals(true)).OrderByDescending(o => o.category_code).ToList();
-            Category_ViewModel model = new Category_ViewModel();
-            
-            return View();
+        {
+         List<MP_ProductCategory> model = _db.MP_ProductCategory.Where(p => p.status.Equals(true)).OrderByDescending(o => o.category_code).ToList();
+            return View(model);
         }
 
         public IActionResult AddCategory()

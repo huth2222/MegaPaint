@@ -65,7 +65,7 @@ div#page {
 }
 
 #table-2 th {
-    background-color: #29215A;
+    /* background-color: #29215A; */
     color: white;
 }
 
@@ -152,8 +152,8 @@ tr {
 
 tr.alt td {
     background-color: #ecf6fc;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    /* padding-top: 5px;
+    padding-bottom: 5px; */
 }
 
 td {
