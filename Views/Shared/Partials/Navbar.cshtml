@@ -129,7 +129,7 @@
         <i class="fas fa-expand-arrows-alt"></i>
       </a>
     </li> *@
-    @if (HttpContextAccessor.HttpContext.Session.GetString("_Avatar") != "")
+    @if (HttpContextAccessor.HttpContext.Session.GetString("_Avatar") != "" && HttpContextAccessor.HttpContext.Session.GetString("_Avatar") != null)
     {
       <li class="nav-item">
         <a href="#" role="button" title='@HttpContextAccessor.HttpContext.Session.GetString("_Fullname")'>

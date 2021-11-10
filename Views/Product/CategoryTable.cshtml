@@ -1,0 +1,36 @@
+@{
+    Layout = null;
+}
+<div class="row">
+            <div class="col-12" style="font-size: 14px;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">รายชื่อหมวดหมู่สินค้า</h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="t_categorylist" class="table table-bordered text-center" cellspacing="0" cellpadding="0">
+                            <tr class="bg-info" style="vertical-align: top;">
+                <th style="width: 200px; vertical-align: top;">ชื่อหวมดหมู่สินค้า</th>
+                <th style="vertical-align: top;">รายละเอียด/หมายเหตุ</th>
+                <th style="width: 100px; vertical-align: top;">Tool</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in @ViewBag.CategoryTable)
+                    {
+
+                    <tr id="item.category_code">
+                    <td>@item.category_name_th</td>
+                    <td>@item.category_detail</td>                    
+                    <td><span class="d-flex justify-content-around"> <span class="hover-del" onclick='GetDelCategoryTable("@item.category_code","@item.category_name_th")'><i class="fas fa-trash-alt"></i></span><span class="hover-edit" onclick="GetEditCategoryTable("@item.category_code","@item.category_name_th")'><i class="fas fa-edit"></i></span> </span></td>
+                </tr>
+                    }
+                    
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+'<thead>' +
+                

@@ -1,0 +1,79 @@
+@{
+    Layout = null;
+}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="~/TableDnD-master/tablednd.css" type="text/css"/>
+    
+    <title>Document</title>
+</head>
+<body>
+<div>
+<table id="table-2" cellspacing="0" cellpadding="0">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>#</th>
+            <th>#</th>
+            <th>#</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr id="1"><td>1</td><td>One</td><td><input type="text" name="one" value="one"/></td><td><input type="text" id="t1"/></td></tr>
+    <tr id="2"><td>2</td><td>Two</td><td><input type="text" name="two" value="two"/></td><td><input type="text" id="t2"/></td></tr>
+    <tr id="3"><td>3</td><td>Three</td><td><input type="text" name="three" value="three"/></td><td><input type="text" id="t3"/></td></tr>
+    </tbody>
+</table>
+    <div class="result">&nbsp;</div>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script type="text/javascript" src="~/TableDnD-master/js/jquery.tablednd.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        table_2 = $("#table-2");
+        table_2.find("tr:even").addClass("alt");
+        // Initialise the second table specifying a dragClass and an onDrop function that will display an alert
+        table_2.tableDnD({
+            onDragClass: "myDragClass",
+            onDrop: function(table, row) {
+                var rows = table.tBodies[0].rows;
+                var debugStr = "Row dropped was "+row.id+". New order: ";
+                for (var i=0; i<rows.length; i++) {
+                    debugStr += rows[i].id+" ";
+                    $('#t'+rows[i].id).val((i+1));
+                }
+                $(table).parent().find('.result').text(debugStr);
+            },
+            onDragStart: function(table, row) {
+                $(table).parent().find('.result').text("Started dragging row "+row.id);
+            }
+        });
+
+       
+
+        
+
+    });
+</script>
+
+</body>
+</html>

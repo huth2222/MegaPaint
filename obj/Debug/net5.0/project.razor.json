@@ -15644,6 +15644,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Project\\MegaPaint\\Views\\Product\\CategoryTable.cshtml",
+      "TargetPath": "Views\\Product\\CategoryTable.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Project\\MegaPaint\\Views\\Shared\\Partials\\Sidebar.cshtml",
       "TargetPath": "Views\\Shared\\Partials\\Sidebar.cshtml",
       "FileKind": "mvc"
@@ -15671,6 +15676,11 @@
     {
       "FilePath": "d:\\Project\\MegaPaint\\Views\\Shared\\Partials\\Sidebar copy.cshtml",
       "TargetPath": "Views\\Shared\\Partials\\Sidebar copy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\MegaPaint\\Views\\Product\\Test.cshtml",
+      "TargetPath": "Views\\Product\\Test.cshtml",
       "FileKind": "mvc"
     },
     {

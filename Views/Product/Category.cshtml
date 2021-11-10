@@ -6,26 +6,29 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>หมวดหมู่สินค้า</h1>
+                <h1 id="title_name">หมวดหมู่สินค้า</h1>
             </div>
             <div class="col-sm-6">
-                <div class="btn-group btn-group-toggle float-sm-right" data-toggle="buttons">
-                  <label id="l_form_edit" class="btn bg-olive">
-                    <input type="radio" name="form_active" id="b_form_edit" autocomplete="off"> <i id="i_form_edit" class="fas fa-plus"></i> ฟอร์มแก้ไข
-                  </label>
-                  <label class="btn bg-olive">
-                    <input id="l_form_add" type="radio" name="form_active" id="b_form_add" autocomplete="off"> <i id="i_form_add" class="fas fa-plus"></i> ฟอร์มเพิ่ม
-                  </label>
-                  <label class="btn bg-olive" active hidden>
+                @* <div class="btn-group btn-group-toggle float-sm-right" data-toggle="buttons">
+                    <label id="l_form_edit" class="btn bg-olive">
+                    <input type="radio" name="form_active" id="b_form_edit" autocomplete="off"> <i id="i_form_edit"
+                    class="fas fa-plus"></i> ฟอร์มแก้ไข
+                    </label>
+                    <label class="btn bg-olive">
+                    <input id="l_form_add" type="radio" name="form_active" id="b_form_add" autocomplete="off"> <i
+                    id="i_form_add" class="fas fa-plus"></i> ฟอร์มเพิ่ม
+                    </label>
+                    <label class="btn bg-olive" active hidden>
                     <input type="radio" name="form_active" id="b_form_cancel" autocomplete="off" checked>Cancel
-                    
-                  </label>
-                  <input type="text" id="active_form">
-                </div>
-                @* <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><button type="button" id="b_form" class="btn btn-outline-warning btn-block" style="width: 50px;"><i id="i_form" class="fas fa-plus"></i> ฟอร์มแก้ไขหมวดหมู่สินค้า</button></li>
-                    <li class="breadcrumb-item"><button type="button" id="b_form" class="btn btn-outline-success btn-block"><i id="i_form" class="fas fa-plus"></i> ฟอร์มเพิ่มหมวดหมู่สินค้า</button></li>
-                </ol> *@
+
+                    </label>
+                    <input type="text" id="active_form">
+                    </div> *@
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><button type="button" id="b_form"
+                            class="btn btn-outline-success btn-block"><i id="i_form" class="fas fa-plus"></i>
+                            ฟอร์มเพิ่มหมวดหมู่สินค้า</button></li>
+                </ol>
             </div>
         </div>
     </div>
@@ -34,40 +37,52 @@
 
 
 
+
 <!-- Main content -->
-<section class="content" id="section_cateory">
+<section class="content" id="section_category">
     <form asp-action="Category" id="form_category" asp-controller="Product" method="POST" enctype="multipart/form-data"
         asp-antiforgery="true" target="_blank">
-        <input type="text" asp-for="category_code">
+
+<input type="text" id="form_type" name="form_type" value="@ViewBag.PageActive">
+<input type="text" asp-for="category_code">
+<input type="text" id="CategoryCode" value="@ViewBag.CategoryCode">
         <div class="row">
             <div class="col-md-12">
-                <div class="card card-outline card-info">
+                <div id="card_form" class="card card-outline card-info">
                     <div class="card-body">
                         <div class="row">
-                            <div class="form-group col-12">
+                            <div class="form-group col-12 bg-light">
                                 <label>ชื่อหมวดหมู่สินค้า</label>
                                 <input type="text" asp-for="category_name_th" class="form-control">
-                            </div>                                                     
+                            </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-12">
                                 <label>รายละเอียด/หมายเหตุ</label>
-                                <textarea asp-for="category_detail" class="form-control" rows="4" style="width: 100%;"></textarea>
-                            </div>                                           
-                        </div>                                             
+                                <textarea asp-for="category_detail" class="form-control" rows="4"
+                                    style="width: 100%;"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 form-group text-right">
+                                <button type="button" id="btn_cancel" style="width: 150px;"
+                                    class="btn btn-warning">Cancel</button>
+                                <button type="button" id="btn_submit" style="width: 150px;"
+                                    class="btn btn-success">Add</button>
+                            </div>
+                        </div>
                     </div>
                     <!-- /.card-header -->
                 </div>
             </div>
             <!-- /.col-->
+
         </div>
         <!-- ./row -->
 
 
 
-        <div class="form-group text-right">
-            <button type="button" id="btn_submit" style="width: 100px;" class="btn btn-primary">Add</button>
-        </div>
+
         <div class="row">
             <button type="button" hidden id="btn_alert" class="btn btn-primary" data-toggle="modal"
                 data-target="#exampleModal">
@@ -102,24 +117,24 @@
 </section>
 
 <section id="account_list" class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12" style="font-size: 14px;">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">รายชื่อหมวดหมู่สินค้า</h3>
-                    </div>
-                    <div class="card-body">
-                        <table id="t_categorylist" class="table table-bordered text-center">
+    
+        
 
-                        </table>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
+
+
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script type="text/javascript" src="~/TableDnD-master/js/jquery.tablednd.js"></script>
 
 <script src="~/js/Product/Category/Fuc.js"></script>
 <script src="~/js/Product/Category/Form.js"></script>
+<div id="div_test">
+    <table id="table-2" cellspacing="0" cellpadding="0">
+        <tr id="1"><td>1</td><td>One</td><td><input type="text" name="one" value="one"/></td><td><input type="text" id="t1"/></td></tr>
+        <tr id="2"><td>2</td><td>Two</td><td><input type="text" name="two" value="two"/></td><td><input type="text" id="t2"/></td></tr>
+        <tr id="3"><td>3</td><td>Three</td><td><input type="text" name="three" value="three"/></td><td><input type="text" id="t3"/></td></tr>
+    </table>
+</div>
