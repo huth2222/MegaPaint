@@ -1,9 +1,9 @@
 
 
-p {
+/* p {
     padding: 10px;
     width: 60%;
-}
+} */
 
 h1 {
     color: #114477;
@@ -229,10 +229,10 @@ td.showDragHandle {
     white-space: normal;
 }
 
-div.indent {
+/* div.indent {
     width: 30px;
     float: left;
-}
+} */
 
 #sprintlist_table th {
     color: white;

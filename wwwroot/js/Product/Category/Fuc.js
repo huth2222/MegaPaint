@@ -1,5 +1,5 @@
 /************* Get Account table */
-function GetCategoryTable(){
+function GetCategoryTable_(){
   $.ajax({
     url: "/Product/CategoryTable",
     type: 'GET',
@@ -8,7 +8,7 @@ function GetCategoryTable(){
     } 
 });
 }
-function GetCategoryTable_() {
+function GetCategoryTable() {
     let local = location.origin + "/Product/GetCategoryTable";
     $.get(local,
         function (data, textStatus, jqXHR) {
@@ -32,7 +32,7 @@ function GetCategoryTable_() {
             let html = '<table id="t_categorylist" class="table table-bordered text-center" cellspacing="0" cellpadding="0">' +
                 '<thead>' +
                 '<tr class="bg-info" style="vertical-align: top;">' +
-                '<th style="width: 200px; vertical-align: top;">ชื่อหวมดหมู่สินค้า</th>' +
+                '<th style="width: 200px; vertical-align: top;">ชื่อหมวดหมู่สินค้า</th>' +
                 '<th ' + h_detail + ' style="vertical-align: top;">รายละเอียด/หมายเหตุ</th>' +
                 '<th style="width: 100px; vertical-align: top;">Tool</th>' +
                 '</tr>' +
@@ -91,7 +91,13 @@ function GetEditCategoryTable(category_code){
     //     $('#i_form').removeClass("fa-plus");
     //     $('#i_form').addClass("fa-minus");
     //   }
-    $('#title_name').html('แก้ไขหมวดหมู่สินค้า');
+    // $('#title_name').html('แก้ไขหมวดหมู่สินค้า');
+    if($("#title_name").html() != "แก้ไขหมวดหมู่สินค้า"){
+      $("#title_name").fadeOut(300, function() {
+        $(this).html("แก้ไขหมวดหมู่สินค้า").fadeIn(300);
+     });
+    }
+    
     $('#section_category input,#category_detail').css('background-color','#fff3f0');
       $('#form_type').val('Edit');
       $('#btn_submit').html('Edit');
@@ -151,7 +157,7 @@ function GetSubmit(form) {
         $("#div_index").fadeIn(1000);
         localStorage.clear();
         GetCategoryTable(active,CategoryCode);        
-        $('#section_cateory').show();
+        $('#section_category').show();
       },
     });
   }, 1000);  

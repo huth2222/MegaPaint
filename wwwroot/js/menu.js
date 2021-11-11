@@ -72,6 +72,15 @@ $("#s_pd_category").click(() => {
   }
 });
 
+/**************** Form Product Group */
+$("#s_pd_group").click(() => {
+  if ($("#page").val() != "pd_group") {
+    $("#div_index").empty();
+    GetMenuPdGroup();
+    GetPagePdGroup("/Product/Group");
+  }
+});
+
 
 
   
@@ -186,5 +195,23 @@ function GetMenuPdCategory() {
     if ($("#nav_seller").hasClass("menu-is-opening menu-open")) {
       $("#m_seller").click();
     }
+  }, 1000);
+}
+
+function GetMenuPdGroup() {
+  $("#div_index").hide();
+  $("span").removeClass("active");
+  //$('#m_shop').addClass('active');
+  $("#s_pd_group").addClass("active");
+  setTimeout(() => {
+    if ($("#nav_admin").hasClass("menu-is-opening menu-open")) {
+      $("#m_admin").click();
+    }
+    if ($("#nav_shop").hasClass("menu-is-opening menu-open")) {
+      $("#m_shop").click();
+    }
+    if ($("#nav_seller").hasClass("menu-is-opening menu-open")) {
+      $("#m_seller").click();
+    }  
   }, 1000);
 }

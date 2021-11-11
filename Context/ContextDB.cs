@@ -22,5 +22,7 @@ namespace MegaPaint.Context
         public DbSet<MP_SellerPresentAddress> MP_SellerPresentAddress {get; set;}     
         public DbSet<MP_ProductType> MP_ProductType {get; set;}  
         public DbSet<MP_ProductCategory> MP_ProductCategory {get; set;}
+        public DbSet<MP_ProductGroup> MP_ProductGroup {get; set;}
+        public DbSet<MP_View_ProductGroup> MP_View_ProductGroup {get; set;}
     }
 }

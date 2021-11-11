@@ -114,3 +114,17 @@ function GetPagePdCategory(page){
         } 
     });
 }
+
+function GetPagePdGroup(page){
+    $.ajax({
+        url: page,
+        type: 'GET',
+        success:function(data) {
+            $("#div_index").html(data);
+            $("#div_index").fadeTo( "slow", 1 );
+            localStorage.clear();
+            GetGroupTable();
+            $('#page').val('pd_group');
+        } 
+    });
+}

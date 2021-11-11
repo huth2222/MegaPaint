@@ -76,8 +76,15 @@ $(document).ready(()=>{
       $('#btn_submit').addClass('btn-success')
     }  
     if($('#b_form').hasClass("btn-outline-success")){
-      $('#title_name').html('เพิ่มหมวดหมู่สินค้า');
+      // $('#title_name').fadeOut(500,()=>{
+      //   $(this).html('เพิ่มหมวดหมู่สินค้า').fadeIn(500);
+      // });
+      $("#title_name").fadeOut(300, function() {
+        $(this).html("เพิ่มหมวดหมู่สินค้า").fadeIn(300);
+     });
+      //$('#title_name').fadeOut(500).fadeIn(500).html('เพิ่มหมวดหมู่สินค้า');
       $('#section_category input,#category_detail').css('background-color','#f0fff7');
+      $('tr').css('color','#000');
       $('#btn_cancel').hide();
       $('#form_type').val('Add');
       $('#category_code').val('');
@@ -89,7 +96,10 @@ $(document).ready(()=>{
       $('#i_form').removeClass("fa-plus");
       $('#i_form').addClass("fa-minus");
     }else if($('#b_form').hasClass("btn-outline-danger")){
-      $('#title_name').html('หมวดหมู่สินค้า');
+      //$('#title_name').html('หมวดหมู่สินค้า');
+      $("#title_name").fadeOut(300, function() {
+        $(this).html("หมวดหมู่สินค้า").fadeIn(300);
+     });
       $('#section_category input,#category_detail').css('background-color','');
       $('#form_type').val('');
       $('#section_category').slideUp();

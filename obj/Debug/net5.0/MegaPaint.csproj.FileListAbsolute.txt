@@ -175,3 +175,5 @@ D:\Project\TOA\MegaPaint\obj\Debug\net5.0\MegaPaint.RazorTargetAssemblyInfo.cs
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\MegaPaint.Views.pdb
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\MegaPaint.csproj.CopyComplete
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\MegaPaint.genruntimeconfig.cache
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Product\CategoryTable.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Product\Group.cshtml.g.cs
