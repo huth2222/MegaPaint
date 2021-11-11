@@ -24,5 +24,9 @@ namespace MegaPaint.Context
         public DbSet<MP_ProductCategory> MP_ProductCategory {get; set;}
         public DbSet<MP_ProductGroup> MP_ProductGroup {get; set;}
         public DbSet<MP_View_ProductGroup> MP_View_ProductGroup {get; set;}
+        public DbSet<MP_Product> MP_Product {get; set;}
+        public DbSet<MP_Pc> MP_Pc {get; set;}
+        public DbSet<MP_PcGroup> MP_PcGroup {get; set;}
+        public DbSet<MP_ProductPicture> MP_ProductPicture {get; set;}
     }
 }

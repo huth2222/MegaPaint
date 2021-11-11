@@ -15729,6 +15729,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Product\\Item.cshtml",
+      "TargetPath": "Views\\Product\\Item.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Product\\Group.cshtml",
+      "TargetPath": "Views\\Product\\Group.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Project\\TOA\\MegaPaint\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"

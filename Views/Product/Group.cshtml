@@ -56,8 +56,7 @@
                                 <select asp-for="category_code" class="form-control">
                                     <option style="background-color: gray;" value="">กรุณาเลือกหมวดหมู่สินค้า</option>
                                     @foreach (var itemCategory in ViewBag.Category)
-                                    {
-                                        var selected = "";
+                                    {                     
                                         @if(ViewBag.CategoryCode == itemCategory.category_code){
                                             <option value="@itemCategory.category_code" selected>@itemCategory.category_name_th</option>
                                         }else{

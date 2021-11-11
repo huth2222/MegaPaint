@@ -284,5 +284,10 @@ namespace MegaPaint.Controllers.Entity
         {
             return View();
         }
+
+        public IActionResult Item()
+        {
+            return View();
+        }
     }
 }
