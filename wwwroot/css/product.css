@@ -4,7 +4,9 @@
 
     /* height: auto; */
     /* width: 80%; */
-    width: 80%;
+    /* width: 80%; */
+    max-height: 500px;
+    max-width: 80%;
   }
   .div-main{
     /* width: 50%; */

@@ -129,34 +129,19 @@ function GetPagePdGroup(page){
     });
 }
 
-function GetPagePdItem(page){
-    //alert(page);
-    $.ajax({
-        url: page,
-        type: 'GET',
-        success:function(data) {
-            $("#div_index").html(data);
-            $("#div_index").fadeTo( "slow", 1 );
-            localStorage.clear();
-            //GetGroupTable();
-            $('#page').val('pd_item');
-        } 
-    });
-}
 
-/******************* */
-/***************** Form shop */
-function GetPagePdTest(page){
+/***************** Form Item */
+function GetPagePdItem(page){
     $.ajax({
         url: page,
         type: 'GET',
         success:function(data) {
             $("#div_index").html(data);
-            GetShopFormAction();
+            //GetShopFormAction();
             $("#div_index").fadeTo( "slow", 1 );
             localStorage.clear();
-            GetShopTable("inside","add","empty");
-            $('#page').val('pd_test');
+            //GetShopTable("inside","add","empty");
+            $('#page').val('pd_item');
         } 
     });
 }

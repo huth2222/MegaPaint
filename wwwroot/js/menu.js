@@ -86,16 +86,17 @@ $("#s_pd_item").click(() => {
   if ($("#page").val() != "pd_item") {
     $("#div_index").empty();
     GetMenuPdItem();    
-    GetPagePdItem("/Products/Items");
+    GetPagePdItem("/Item/Index");
   }
 });
 
 /**************** Form Shop */
 $("#s_pd_test").click(() => {
+  alert();
   if ($("#page").val() != "pd_item") {
     $("#div_index").empty();
     GetMenuPdTest();
-    GetPagePdTest("/Test/Item");
+    GetPagePdTest("/Item/Index");
   }
 });
 

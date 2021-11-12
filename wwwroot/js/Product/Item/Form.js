@@ -1,28 +1,84 @@
 $(document).ready(() => {
-  $('#imagePreview').hide();
-    $('#shop_picture').change(function () {
-        configImageProfile(this);
-    });
+  $('#pic1, #pic2, #pic3, #pic4, #pic5').hide();
+  // $('#imagePreview').hide();
+  $("#btn_addpic").click(() => {
+    if($('#filepic1').val() == ''){
+      $("#filepic1").click();
+    }else if($('#filepic2').val() == ''){
+      $("#filepic2").click();
+    }else if($('#filepic3').val() == ''){
+      $("#filepic3").click();
+    }else if($('#filepic4').val() == ''){
+      $("#filepic4").click();
+    }else if($('#filepic5').val() == ''){
+      $("#filepic5").click();
+    }else{
+      alert('เพิ่มรูปภาพได้สูงสุด 5 รูป');
+    }
+
+    //$("#filepic1").click();
+  });
+
+  $("#filepic1").change(function () {
+    configImageProfile(this);
+    setTimeout(() => {
+      $("#pic1").attr("src", $("#img_main").attr("src"));
+      $("#pic1").show();
+    }, 100);
+  });
+  $("#filepic2").change(function () {
+    configImageProfile(this);
+    setTimeout(() => {
+      $("#pic2").attr("src", $("#img_main").attr("src"));
+      $("#pic2").show();
+    }, 100);
+  });
+  $("#filepic3").change(function () {
+    configImageProfile(this);
+    setTimeout(() => {
+      $("#pic3").attr("src", $("#img_main").attr("src"));
+      $("#pic3").show();
+    }, 100);
+  });
+  $("#filepic4").change(function () {
+    configImageProfile(this);
+    setTimeout(() => {
+      $("#pic4").attr("src", $("#img_main").attr("src"));
+      $("#pic4").show();
+    }, 100);
+  });
+  $("#filepic5").change(function () {
+    configImageProfile(this);
+    setTimeout(() => {
+      $("#pic5").attr("src", $("#img_main").attr("src"));
+      $("#pic5").show();
+    }, 100);
+  });
 
   $("#pic1").click(() => {
-    $("#main_picture").html($("#pic1").html());
-    $("#main_picture img").addClass("main-picture");
+    $("#img_main").attr("src", $("#pic1").attr("src"));
+    // $('#divpics div').removeClass("active");
+    // $('#divpic1').addClass("active");
   });
   $("#pic2").click(() => {
-    $("#main_picture").html($("#pic2").html());
-    $("#main_picture img").addClass("main-picture");
+    $("#img_main").attr("src", $("#pic2").attr("src"));
+    // $('#divpics div').removeClass("active");
+    // $('#divpic2').addClass("active");
   });
   $("#pic3").click(() => {
-    $("#main_picture").html($("#pic3").html());
-    $("#main_picture img").addClass("main-picture");
+    $("#img_main").attr("src", $("#pic3").attr("src"));
+    // $('#divpics div').removeClass("active");
+    // $('#divpic3').addClass("active");
   });
   $("#pic4").click(() => {
-    $("#main_picture").html($("#pic4").html());
-    $("#main_picture img").addClass("main-picture");
+    $("#img_main").attr("src", $("#pic4").attr("src"));
+    // $('#divpics div').removeClass("active");
+    // $('#divpic4').addClass("active");
   });
   $("#pic5").click(() => {
-    $("#main_picture").html($("#pic5").html());
-    $("#main_picture img").addClass("main-picture");
+    $("#img_main").attr("src", $("#pic5").attr("src"));
+    // $('#divpics div').removeClass("active");
+    // $('#divpic5').addClass("active");
   });
   $("#btn_cancel").hide();
   $("#group_name_th").keyup(() => {
