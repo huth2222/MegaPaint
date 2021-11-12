@@ -130,6 +130,7 @@ function GetPagePdGroup(page){
 }
 
 function GetPagePdItem(page){
+    //alert(page);
     $.ajax({
         url: page,
         type: 'GET',
@@ -139,6 +140,23 @@ function GetPagePdItem(page){
             localStorage.clear();
             //GetGroupTable();
             $('#page').val('pd_item');
+        } 
+    });
+}
+
+/******************* */
+/***************** Form shop */
+function GetPagePdTest(page){
+    $.ajax({
+        url: page,
+        type: 'GET',
+        success:function(data) {
+            $("#div_index").html(data);
+            GetShopFormAction();
+            $("#div_index").fadeTo( "slow", 1 );
+            localStorage.clear();
+            GetShopTable("inside","add","empty");
+            $('#page').val('pd_test');
         } 
     });
 }

@@ -5,22 +5,24 @@ using System.Linq;
 using MegaPaint.Context;
 using MegaPaint.Models;
 using MegaPaint.ViewModels.Entity.Product;
+using MegaPaint.ViewModels.Entity.Product.Item;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MegaPaint.Controllers.Entity
 {
-    public class ProductController : Controller
+    public class ProductsController : Controller
     {
         private readonly ContextDB _db;
         public const string SessionEditCode = "_EditCode";
         public const string SessionPageActive = "_PageActive";
+        public const string SessionEditShopCode = "_EditShopCode";
         [Obsolete]
         private readonly IHostingEnvironment _hostingEnvironment;
 
         [Obsolete]
-        public ProductController(ContextDB context, IHostingEnvironment hostingEnvironment)
+        public ProductsController(ContextDB context, IHostingEnvironment hostingEnvironment)
         {
             _db = context;
             _hostingEnvironment = hostingEnvironment;
@@ -280,14 +282,23 @@ namespace MegaPaint.Controllers.Entity
             return Json(_db.MP_ProductGroup.Where(p => p.status.Equals(true) && p.group_code.Equals(group_code)).FirstOrDefault());
         }
 
-        public IActionResult Test()
+        public IActionResult Items()
         {
             return View();
         }
 
-        public IActionResult Item()
-        {
-            return View();
-        }
+        // public IActionResult Itemss()
+        // {
+        //     Product_ViewModel ViewModel = new Product_ViewModel();
+        //     ViewModel.MP_ProductCategory = _db.MP_ProductCategory.OrderBy(o => o.category_code).ToList();
+        //     ViewModel.MP_ProductGroup = _db.MP_ProductGroup.OrderBy(o => o.group_code).ToList();
+        //     return View(ViewModel);
+        // }
+
+        // public IActionResult AddShop()
+        // {
+        //     ViewBag.changwat = _db.MT_AddressChangwat.ToList();
+        //     return View();
+        // }
     }
 }

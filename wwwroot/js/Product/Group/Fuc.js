@@ -1,7 +1,7 @@
 /************* Get Account table */
 function GetCategoryTable_() {
   $.ajax({
-    url: "/Product/CategoryTable",
+    url: "/Group/CategoryTable",
     type: "GET",
     success: function (data) {
       $("#account_list").html(data);
@@ -9,7 +9,7 @@ function GetCategoryTable_() {
   });
 }
 function GetGroupTable() {
-  let local = location.origin + "/Product/GetGroupTable";
+  let local = location.origin + "/Group/GetGroupTable";
   $.get(
     local,
     function (data, textStatus, jqXHR) {
@@ -99,7 +99,7 @@ function GetEditGroupTable(group_code) {
   $("#GroupCode").val("");
   //alert(category_code);
   $.get(
-    "/Product/GetGroupId/" + group_code,
+    "/Group/GetGroupId/" + group_code,
     function (data) {
       $("#category_code").val(data.category_code);
       $("#group_code").val(data.group_code);
@@ -156,7 +156,7 @@ function GetEditGroupTable(group_code) {
 function GetDelGroupTable(group_code, name) {
   let msg = "ยืนยันการลบข้อมูล กลุ่ม" + name;
   if (confirm(msg)) {
-    $.get("/Product/DelGroupId/" + group_code, function (data) {
+    $.get("/Group/DelGroupId/" + group_code, function (data) {
       alert("ลบ " + data + " สำเร็จ");
       GetGroupTable();
       $("#btn_cancel").click();
@@ -173,10 +173,10 @@ function GetSubmit(form) {
   let formAction = "";
   let = active = "";
   if (form == "Form") {
-    formAction = "/Product/Group?fromform=Form";
+    formAction = "/Group/Group?fromform=Form";
     active = "Form";
   } else {
-    formAction = "/Product/Group";
+    formAction = "/Group/Group";
     active = "Empty";
   }
   setTimeout(() => {

@@ -83,9 +83,6 @@ D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Shop\EditShop.cshtml.g.cs
 D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Seller\AddSeller.cshtml.g.cs
 D:\Project\MegaPaint\bin\Debug\net5.0\appsettings.json
 D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Seller\EditSeller.cshtml.g.cs
-D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Product\AddCategory.cshtml.g.cs
-D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Product\Category.cshtml.g.cs
-D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Product\Test.cshtml.g.cs
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\MegaPaint.csproj.AssemblyReference.cache
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\MegaPaint.GeneratedMSBuildEditorConfig.editorconfig
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\MegaPaint.AssemblyInfoInputs.cache
@@ -174,8 +171,17 @@ D:\Project\TOA\MegaPaint\obj\Debug\net5.0\MegaPaint.RazorTargetAssemblyInfo.cs
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\MegaPaint.Views.pdb
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\MegaPaint.csproj.CopyComplete
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\MegaPaint.genruntimeconfig.cache
-D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Product\CategoryTable.cshtml.g.cs
-D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Product\Group.cshtml.g.cs
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\Razor\Views\Product\Group.cshtml.g.cs
 D:\Project\TOA\MegaPaint\bin\Debug\net5.0\appsettings.json
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\Razor\Views\Product\Item.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Test\Item.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Products\AddCategory.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Products\Category.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Products\CategoryTable.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Products\Group.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Products\Item copy.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Products\Items.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Products\Test.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Category\CategoryTable.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Category\Index.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Group\Index.cshtml.g.cs

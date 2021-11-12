@@ -1,0 +1,155 @@
+@model MP_ProductGroup
+@{
+    Layout = null;
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 id="title_name">กลุ่มสินค้าในหมวดหมู่</h1>
+            </div>
+            <div class="col-sm-6">
+                @* <div class="btn-group btn-group-toggle float-sm-right" data-toggle="buttons">
+                    <label id="l_form_edit" class="btn bg-olive">
+                    <input type="radio" name="form_active" id="b_form_edit" autocomplete="off"> <i id="i_form_edit"
+                    class="fas fa-plus"></i> ฟอร์มแก้ไข
+                    </label>
+                    <label class="btn bg-olive">
+                    <input id="l_form_add" type="radio" name="form_active" id="b_form_add" autocomplete="off"> <i
+                    id="i_form_add" class="fas fa-plus"></i> ฟอร์มเพิ่ม
+                    </label>
+                    <label class="btn bg-olive" active hidden>
+                    <input type="radio" name="form_active" id="b_form_cancel" autocomplete="off" checked>Cancel
+
+                    </label>
+                    <input type="text" id="active_form">
+                    </div> *@
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><button type="button" id="b_form"
+                            class="btn btn-outline-success btn-block"><i id="i_form" class="fas fa-plus"></i>
+                            ฟอร์มเพิ่มกลุ่มสินค้า</button></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</section>
+
+
+
+
+<!-- Main content -->
+<section class="content" id="section_group">
+    <form asp-action="Index" id="form_group" asp-controller="Group" method="POST" enctype="multipart/form-data"
+        asp-antiforgery="true" target="_blank">
+
+        <input type="text" id="form_type" name="form_type" value="@ViewBag.PageActive">
+        <input type="text" asp-for="group_code">
+        <input type="text" id="GroupCode" value="@ViewBag.GroupCode">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="card_form" class="card card-outline card-info">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label>หมวดหมู่สินค้า</label>
+                                <select asp-for="category_code" class="form-control">
+                                    <option style="background-color: gray;" value="">กรุณาเลือกหมวดหมู่สินค้า</option>
+                                    @foreach (var itemCategory in ViewBag.Category)
+                                    {                     
+                                        @if(ViewBag.CategoryCode == itemCategory.category_code){
+                                            <option value="@itemCategory.category_code" selected>@itemCategory.category_name_th</option>
+                                        }else{
+                                            <option value="@itemCategory.category_code">@itemCategory.category_name_th</option>
+                                        }
+                                        
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label>ชื่อกลุ่มสินค้า</label>
+                                <input type="text" asp-for="group_name_th" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label>รายละเอียด/หมายเหตุ</label>
+                                <textarea asp-for="group_detail" class="form-control" rows="4"
+                                    style="width: 100%;"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 form-group text-right">
+                                <button type="button" id="btn_cancel" style="width: 150px;"
+                                    class="btn btn-warning">Cancel</button>
+                                <button type="button" id="btn_submit" style="width: 150px;"
+                                    class="btn btn-success">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                </div>
+            </div>
+            <!-- /.col-->
+
+        </div>
+        <!-- ./row -->
+
+
+
+
+        <div class="row">
+            <button type="button" hidden id="btn_alert" class="btn btn-primary" data-toggle="modal"
+                data-target="#exampleModal">
+                Launch demo modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">ยืนยันการบันทึก</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        @* <div class="modal-body">
+                            ...
+                            </div> *@
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cencel</button>
+                            <button type="button" onclick='javascript:GetSubmit("Form");' class="btn btn-primary"
+                                data-dismiss="modal">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- ./row -->
+</section>
+
+<section id="account_list" class="content"></section>
+
+
+
+<script src="~/js/Product/Group/Fuc.js"></script>
+<script src="~/js/Product/Group/Form.js"></script>
+
+
+
+
+@* <div id="div_test">
+    <table id="table-21" cellspacing="0" cellpadding="0">
+    <tr id="1"><td>1</td><td>One</td><td><input type="text" name="one" value="one"/></td><td><input type="text"
+    id="t1"/></td></tr>
+    <tr id="2"><td>2</td><td>Two</td><td><input type="text" name="two" value="two"/></td><td><input type="text"
+    id="t2"/></td></tr>
+    <tr id="3"><td>3</td><td>Three</td><td><input type="text" name="three" value="three"/></td><td><input type="text"
+    id="t3"/></td></tr>
+    </table>
+    </div> *@

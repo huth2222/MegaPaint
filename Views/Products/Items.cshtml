@@ -1,0 +1,25 @@
+@{
+    Layout = null;
+}
+
+
+<div class="form-group">
+
+    <center>
+        <input type="hidden" id="shopCode"
+            value='@HttpContextAccessor.HttpContext.Session.GetString("_EditShopCode")' />
+        <img id="img0" alt="" width="120" src="/asset/img/add-shop.png"
+            class="img-fluid img-thumbnail rounded-corners ion ion-person-add" onclick="javascript:selectImage()"
+            style="cursor: pointer;height:120px;object-fit:cover;">
+        <img id="imagePreview" alt="" width="120" class="img-fluid img-thumbnail rounded-corners ion ion-person-add"
+            onclick="javascript:selectImage()" style="cursor: pointer;height:120px;object-fit:cover;">
+
+    </center>
+    <input type="file" hidden id="file" name="file" accept="image/x-png,image/jpg,image/jpeg">
+
+</div>
+
+
+<script src="~/js/Shop/FucFormShop.js"></script>
+<script src="~/js/Shop/AddShop.js"></script>
+<script src="~/js/Shop/API.js"></script>

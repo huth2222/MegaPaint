@@ -1,7 +1,7 @@
 /************* Get Account table */
 function GetCategoryTable_(){
   $.ajax({
-    url: "/Product/CategoryTable",
+    url: "/Category/CategoryTable",
     type: 'GET',
     success:function(data) {
         $("#account_list").html(data);
@@ -9,7 +9,7 @@ function GetCategoryTable_(){
 });
 }
 function GetCategoryTable() {
-    let local = location.origin + "/Product/GetCategoryTable";
+    let local = location.origin + "/Category/GetCategoryTable";
     $.get(local,
         function (data, textStatus, jqXHR) {
             
@@ -70,7 +70,7 @@ function GetCategoryTable() {
 function GetEditCategoryTable(category_code){
   $('#CategoryCode').val('');
     //alert(category_code);
-    $.get("/Product/GetCategoryId/"+category_code,
+    $.get("/Category/GetCategoryId/"+category_code,
     function(data){
         $('#category_code').val(data.category_code);
         $('#category_name_th').val(data.category_name_th);
@@ -123,7 +123,7 @@ function GetEditCategoryTable(category_code){
 function GetDelCategoryTable(category_code,name){
     let msg = 'ยืนยันการลบข้อมูล ร้าน' + name;
     if(confirm(msg)){
-        $.get("/Product/DelCategoryId/"+category_code,function(data){
+        $.get("/Category/DelCategoryId/"+category_code,function(data){
           alert("ลบ " + data + " สำเร็จ");
           GetCategoryTable();
           $('#btn_cancel').click();
@@ -141,10 +141,10 @@ function GetSubmit(form) {
   let formAction = "";
   let = active = "";
   if(form == "Form"){
-    formAction = "/Product/Category?fromform=Form";
+    formAction = "/Category/Category?fromform=Form";
     active = "Form";
   }else{
-    formAction = "/Product/Category";
+    formAction = "/Category/Category";
     active = "Empty";
   }
   setTimeout(() => {
