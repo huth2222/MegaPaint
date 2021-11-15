@@ -3,6 +3,7 @@
   Layout = null;
 }
 <link rel="stylesheet" href="~/css/product.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"/>
 <style>
   .active {
     border-color: coral;
@@ -17,39 +18,50 @@
         <div class="col-12 col-sm-6">
           <h3 class="d-inline-block d-sm-none" id="title_name">ข้อมูลสินค้า</h3>
           <div>
-            <div class="btn btn-danger btn-lg btn-flat col-12">
+            <button id="img_del" class="btn btn-danger btn-lg btn-flat col-12">
               Delete picture
-            </div>
+            </button>
           </div>
 
           <div class="col-12 text-center div-main">
-            <img id="img_main" class="main-picture" src="" alt="Product Image">
+            <input type="text" id="img_id">
+            <input type="number" id="img_row">
+            <img id="img_main" class="main-picture" src="~/data/system/add_item.png" alt="Product Image">
           </div>
 
           <div id="divpics" class="col-12 product-image-thumbs">
-            <div id="divpic1" class="product-image-thumb"><img id="pic1"
-                alt="Product Image" src=""></div>
-            <div id="divpic2" class="product-image-thumb"><img id="pic2"
-                alt="Product Image" src=""></div>
-            <div id="divpic3" class="product-image-thumb"><img id="pic3"
-                alt="Product Image" src=""></div>
-            <div id="divpic4" class="product-image-thumb"><img id="pic4"
-                alt="Product Image" src=""></div>
-            <div id="divpic5" class="product-image-thumb"><img id="pic5"
-                alt="Product Image" src=""></div>
+            @* <table id="table2">
+              <tr>
+                <th data-type="number">
+                  <div id="divpic1" class="product-image-thumb"><img id="pic1" alt="Product Image" src=""></div>
+                </th>
+                <th>
+                  <div id="divpic2" class="product-image-thumb"><img id="pic2" alt="Product Image" src=""></div>
+                </th>
+                <th>
+                  <div id="divpic3" class="product-image-thumb"><img id="pic3" alt="Product Image" src=""></div>
+                </th>
+                <th>
+                  <div id="divpic4" class="product-image-thumb"><img id="pic4" alt="Product Image" src=""></div>
+                </th>
+                <th>
+                  <div id="divpic5" class="product-image-thumb"><img id="pic5" alt="Product Image" src=""></div>
+                </th>
+              </tr>
+            </table> *@
           </div>
           <div class="form-group">
 
             @* <center>
               <img id="img0" alt="" width="120" src="/asset/img/add-shop.png"
-                class="img-fluid img-thumbnail rounded-corners ion ion-person-add" onclick="javascript:selectImage()"
-                style="cursor: pointer;height:120px;object-fit:cover;">
+              class="img-fluid img-thumbnail rounded-corners ion ion-person-add" onclick="javascript:selectImage()"
+              style="cursor: pointer;height:120px;object-fit:cover;">
               <img id="imagePreview" alt="" width="120"
-                class="img-fluid img-thumbnail rounded-corners ion ion-person-add" onclick="javascript:selectImage()"
-                style="cursor: pointer;height:120px;object-fit:cover;">
+              class="img-fluid img-thumbnail rounded-corners ion ion-person-add" onclick="javascript:selectImage()"
+              style="cursor: pointer;height:120px;object-fit:cover;">
 
-            </center> 
-            <input type="file" hidden id="file" name="file" accept="image/x-png,image/jpg,image/jpeg">*@
+              </center>
+              <input type="file" hidden id="file" name="file" accept="image/x-png,image/jpg,image/jpeg">*@
 
           </div>
           <div class="mt-4">
@@ -57,11 +69,13 @@
               <i id="i_form" class="fas fa-plus"></i>
             </div>
           </div>
-          <input type="file" id="filepic1" name="filepic1" hidden accept="image/x-png,image/jpg,image/jpeg">
-          <input type="file" id="filepic2" name="filepic2" hidden accept="image/x-png,image/jpg,image/jpeg">
-          <input type="file" id="filepic3" name="filepic3" hidden accept="image/x-png,image/jpg,image/jpeg">
-          <input type="file" id="filepic4" name="filepic4" hidden accept="image/x-png,image/jpg,image/jpeg">
-          <input type="file" id="filepic5" name="filepic5" hidden accept="image/x-png,image/jpg,image/jpeg">
+          <input type="file" id="filepic1" name="filepic1" accept="image/x-png,image/jpg,image/jpeg">
+          <input type="file" id="filepic2" name="filepic2" accept="image/x-png,image/jpg,image/jpeg">
+          <input type="file" id="filepic3" name="filepic3" accept="image/x-png,image/jpg,image/jpeg">
+          <input type="file" id="filepic4" name="filepic4" accept="image/x-png,image/jpg,image/jpeg">
+          <input type="file" id="filepic5" name="filepic5" accept="image/x-png,image/jpg,image/jpeg">
+
+          
 
         </div>
         <div class="col-12 col-sm-6">
@@ -79,6 +93,7 @@
                 placeholder="ระบุหน่วย...">
             </div>
           </div>
+
           <div class="row">
             <div class="form-group col-12 col-sm-6">
               <label for="exampleInputBorder"><code>หมวดหมู่สินค้า</code></label>
@@ -98,6 +113,43 @@
               </select>
             </div>
           </div>
+          <div class="row">
+            <div class="form-group col-12 col-sm-6">
+              <label for="exampleInputBorder"><code>หน่วย</code></label>
+              <input type="text" class="form-control form-control-border border-width-2" id="exampleInputBorder"
+                placeholder="ระบุหน่วย...">
+            </div>
+            <div class="form-group col-12 col-sm-6">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">ส่งตรงจากโรงงาน</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">สินค้า Catagory Kikller</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">สินค้า Rare Item</label>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="row">
+            <div class="form-group col-12 col-sm-6">
+              <div class="form-group form-check">
+                <input id="color_attr" class="form-check-input" type="checkbox">
+                <label class="form-check-label">สี</label>
+              </div>
+            </div>
+            <div class="form-group col-12 col-sm-6">
+              <div class="form-group form-check">
+                <input id="size_attr" class="form-check-input" type="checkbox">
+                <label class="form-check-label">ขนาด</label>
+              </div>
+            </div>
+          </div>
 
 
 
@@ -105,67 +157,71 @@
 
           <br>
 
-          <h4>ระบุสีสินค้า</h4>
+          <div id="div_color">
+            <h4>ระบุสีสินค้า</h4>
 
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-default text-center">
-              <input type="radio" name="color_option" id="color_option_a1" autocomplete="off">
-              Green
-              <br>
-              <i class="fas fa-circle fa-2x text-green"></i>
-            </label>
-            <label class="btn btn-default text-center active">
-              <input type="radio" name="color_option" id="color_option_a2" checked autocomplete="off">
-              Blue
-              <br>
-              <i class="fas fa-circle fa-2x text-blue"></i>
-            </label>
-            <label class="btn btn-default text-center">
-              <input type="radio" name="color_option" id="color_option_a3" autocomplete="off">
-              Purple
-              <br>
-              <i class="fas fa-circle fa-2x text-purple"></i>
-            </label>
-            <label class="btn btn-default text-center">
-              <input type="radio" name="color_option" id="color_option_a4" autocomplete="off">
-              Red
-              <br>
-              <i class="fas fa-circle fa-2x text-red"></i>
-            </label>
-            <label class="btn btn-default text-center">
-              <input type="radio" name="color_option" id="color_option_a5" autocomplete="off">
-              Orange
-              <br>
-              <i class="fas fa-circle fa-2x text-orange"></i>
-            </label>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-default text-center">
+                <input type="radio" name="color_option" id="color_option_a1" autocomplete="off">
+                Green
+                <br>
+                <i class="fas fa-circle fa-2x text-green"></i>
+              </label>
+              <label class="btn btn-default text-center"> @*Add class active here*@
+                <input type="radio" name="color_option" id="color_option_a2" autocomplete="off">
+                Blue
+                <br>
+                <i class="fas fa-circle fa-2x text-blue"></i>
+              </label>
+              <label class="btn btn-default text-center">
+                <input type="radio" name="color_option" id="color_option_a3" autocomplete="off">
+                Purple
+                <br>
+                <i class="fas fa-circle fa-2x text-purple"></i>
+              </label>
+              <label class="btn btn-default text-center">
+                <input type="radio" name="color_option" id="color_option_a4" autocomplete="off">
+                Red
+                <br>
+                <i class="fas fa-circle fa-2x text-red"></i>
+              </label>
+              <label class="btn btn-default text-center">
+                <input type="radio" name="color_option" id="color_option_a5" autocomplete="off">
+                Orange
+                <br>
+                <i class="fas fa-circle fa-2x text-orange"></i>
+              </label>
+            </div>
           </div>
 
-          <h4 class="mt-3">Size <small>ระบุขนาดสินค้า</small></h4>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-default text-center">
-              <input type="radio" name="color_option" id="color_option_b1" autocomplete="off">
-              <span class="text-xl">S</span>
-              <br>
-              Small
-            </label>
-            <label class="btn btn-default text-center">
-              <input type="radio" name="color_option" id="color_option_b2" autocomplete="off">
-              <span class="text-xl">M</span>
-              <br>
-              Medium
-            </label>
-            <label class="btn btn-default text-center">
-              <input type="radio" name="color_option" id="color_option_b3" autocomplete="off">
-              <span class="text-xl">L</span>
-              <br>
-              Large
-            </label>
-            <label class="btn btn-default text-center">
-              <input type="radio" name="color_option" id="color_option_b4" autocomplete="off">
-              <span class="text-xl">XL</span>
-              <br>
-              Xtra-Large
-            </label>
+          <div id="div_size">
+            <h4 class="mt-3">Size <small>ระบุขนาดสินค้า</small></h4>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-default text-center">
+                <input type="radio" name="size_option" id="size_option_b1" autocomplete="off">
+                <span class="text-xl">S</span>
+                <br>
+                Small
+              </label>
+              <label class="btn btn-default text-center">
+                <input type="radio" name="size_option" id="size_option_b2" autocomplete="off">
+                <span class="text-xl">M</span>
+                <br>
+                Medium
+              </label>
+              <label class="btn btn-default text-center">
+                <input type="radio" name="size_option" id="size_option_b3" autocomplete="off">
+                <span class="text-xl">L</span>
+                <br>
+                Large
+              </label>
+              <label class="btn btn-default text-center">
+                <input type="radio" name="size_option" id="size_option_b4" autocomplete="off">
+                <span class="text-xl">XL</span>
+                <br>
+                Xtra-Large
+              </label>
+            </div>
           </div>
 
           <div class="row bg-gray py-2 px-3 mt-4">
@@ -214,10 +270,10 @@
 
 
           <div class="mt-4">
-            <div class="btn btn-warning btn-lg btn-flat col-3">
+            <div style="width: 150px;" class="btn btn-warning btn-lg btn-flat">
               Cencel
             </div>
-            <div class="btn btn-success btn-lg btn-flat col-3">
+            <div style="width: 150px;" class="btn btn-success btn-lg btn-flat">
               Save
             </div>
 
@@ -242,34 +298,12 @@
         </nav>
         <div class="tab-content p-3" id="nav-tabContent">
           <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
-            &nbsp;&nbsp; รองเท้าภูเขาแท้ 100% xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx
-            xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx </div>
+            สีแท้ 100% จาก TOA</div>
           <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">
-            ทางเทคนิคแล้ว เขาห้ามซัก ห้ามกิน และห้ามใช้
-            บลาๆๆๆๆๆ...............................ๆๆๆๆๆๆๆๆ
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx </div>
+            ทางเทคนิคแล้ว เขาห้ามเล่น ห้ามกิน และห้ามใช้
+            บลาๆๆๆๆๆ</div>
           <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
-            ขนส่งด้วยเครื่องบินเจ็ท บลาๆๆๆๆๆ........................xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx
-            xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx
-            xxxxx xxxxxx xxxxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxx </div>
+            ขนส่งด้วยเครื่องบินเจ็ท บลาๆๆๆๆๆ</div>
         </div>
       </div>
     </div>
@@ -279,5 +313,18 @@
 
 </section>
 
+
+<table id="table" class="table">
+            <thead>
+                <tr>
+                    <th data-type="number"><input type="text" id="th0" value="0"></th>
+                    <th><input type="text" id="th1" value="1"></th>
+                    <th><input type="text" id="th2" value="2"></th>
+                    <th><input type="text" id="th3" value="3"></th>
+                </tr>
+            </thead>
+            
+        </table>
 <script src="~/js/Product/Item/Fuc.js"></script>
 <script src="~/js/Product/Item/Form.js"></script>
+<script src="~/js/Product/Item/MovePic.js"></script>

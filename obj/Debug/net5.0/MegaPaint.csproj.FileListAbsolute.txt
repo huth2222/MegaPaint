@@ -168,7 +168,6 @@ D:\Project\TOA\MegaPaint\obj\Debug\net5.0\MegaPaint.Views.pdb
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\MegaPaint.csproj.CopyComplete
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\MegaPaint.genruntimeconfig.cache
 D:\Project\TOA\MegaPaint\bin\Debug\net5.0\appsettings.json
-D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Test\Item.cshtml.g.cs
 D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Products\AddCategory.cshtml.g.cs
 D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Products\Category.cshtml.g.cs
 D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Products\CategoryTable.cshtml.g.cs
@@ -191,3 +190,5 @@ D:\Project\TOA\MegaPaint\obj\Debug\net5.0\Razor\Views\Products\Items.cshtml.g.cs
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\Razor\Views\Products\Test.cshtml.g.cs
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\Razor\Views\Test\Item.cshtml.g.cs
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\Razor\Views\Item\Index.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Item\Index.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Testing\Item.cshtml.g.cs

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MegaPaint.Controllers.Entity
 {
-    public class TestController : Controller
+    public class TestingController : Controller
     {
         private readonly ContextDB _db;
         public const string SessionEditShopCode = "_EditShopCode";
@@ -15,7 +15,7 @@ namespace MegaPaint.Controllers.Entity
         private readonly IHostingEnvironment _hostingEnvironment;
 
         [Obsolete]
-        public TestController(ContextDB context, IHostingEnvironment hostingEnvironment)
+        public TestingController(ContextDB context, IHostingEnvironment hostingEnvironment)
         {
             _db = context;
             _hostingEnvironment = hostingEnvironment;
@@ -23,7 +23,6 @@ namespace MegaPaint.Controllers.Entity
 
         public IActionResult Item()
         {
-            ViewBag.changwat = _db.MT_AddressChangwat.ToList();
             return View();
         }
     }

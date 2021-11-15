@@ -1,20 +1,29 @@
-.main-picture{
-    /* height: 500px;
+.div-main {
+  /* height: 500px;
     width: auto; */
 
-    /* height: auto; */
-    /* width: 80%; */
-    /* width: 80%; */
-    max-height: 500px;
-    max-width: 80%;
-  }
-  .div-main{
-    /* width: 50%; */
-    height: 250px;
-  }
-  @media (min-width: 370px) {
+  /* height: auto; */
+  /* width: 80%; */
+  /* width: 80%; */
+  /* max-height: 500px; */
+  height: 350px;
+
+  /* max-width: 80%; */
+  /* width: 100%; */
+}
+.main-picture {
+  max-width: 80%;
+  max-height: 250px;
+}
+/* @media (min-width: 370px) {
     .div-main{
         height: 280px;
+      }
+  }
+
+  @media (min-width: 400px) {
+    .div-main{
+        height: 30px;
       }
   }
 
@@ -22,18 +31,110 @@
     .div-main{
         height: 400px;
       }
-  }
+  }*/
 
-  @media (min-width: 750px) {
-    .div-main{
-        height: 300px;
-      }
-  }
-
-  @media (min-width: 1200px) {
+/* @media (min-width: 300px) {
     .div-main{
         height: 400px;
       }
-  }
+      .main-picture{
+        max-height: 400px; 
+        width: 80%;
+      }
+  } */
 
-  
+@media (min-width: 400px) {
+  .div-main {
+    height: auto;
+  }
+  .main-picture {
+    /* max-height: 200px; */
+    width: 50%;
+    height: auto;
+  }
+}
+
+@media (min-width: 600px) {
+  .div-main {
+    height: 250px;
+  }
+  .main-picture {
+    height: auto;
+    /* max-height: 250px; */
+    max-width: 80%;
+  }
+}
+
+@media (min-width: 750px) {
+  .div-main {
+    height: 300px;
+  }
+  .main-picture {
+    max-height: 300px;
+    width: 80%;
+  }
+}
+
+@media (min-width: 800px) {
+  .div-main {
+    height: 350px;
+  }
+  .main-picture {
+    /* max-height: 350px;
+    width: 80%; */
+    max-width: 80%;
+    max-height: 80%;
+    height: auto;
+    width: auto;
+  }
+}
+
+.btn-disabled{
+  background-color: #fff;
+  color: #fff;  
+}
+
+/***********Move Pic************/
+.table {
+  color: red;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+.table th,
+.table td {
+  border: 1px solid #ccc;
+}
+.table th,
+.table td {
+  padding: 0.5rem;
+}
+.draggable {
+  cursor: move;
+  user-select: none;
+}
+.placeholder {
+  background-color: #edf2f7;
+  border: 2px dashed #cbd5e0;
+}
+.clone-list {
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  display: flex;
+}
+.clone-table {
+  border-collapse: collapse;
+  border: none;
+}
+.clone-table th,
+.clone-table td {
+  border: 1px solid #ccc;
+  border-left: none;
+  border-top: none;
+  padding: 0.5rem;
+}
+.dragging {
+  background: #fff;
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  z-index: 999;
+}
