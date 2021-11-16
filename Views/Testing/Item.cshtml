@@ -1,87 +1,81 @@
 @{
     Layout = null;
 }
-
+ 
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>HTML DOM - Drag and drop table column</title>
-        <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AdminLTE 3 | Editors</title>
 
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="~/AdminLTE-3.1.0/plugins/fontawesome-free/css/all.min.css" />
+  <!-- Theme style -->
+  <link rel="stylesheet" href="~/AdminLTE-3.1.0/dist/css/adminlte.min.css" />
+  <!-- summernote -->
+  <link rel="stylesheet" href="~/AdminLTE-3.1.0/plugins/summernote/summernote-bs4.min.css" />
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"
-        />
-        
-        <style>
-            .table {
-                border: 1px solid #ccc;
-                border-collapse: collapse;
-            }
-            .table th,
-            .table td {
-                border: 1px solid #ccc;
-            }
-            .table th,
-            .table td {
-                padding: 0.5rem;
-            }
-            .draggable {
-                cursor: move;
-                user-select: none;
-            }
-            .placeholder {
-                background-color: #edf2f7;
-                border: 2px dashed #cbd5e0;
-            }
-            .clone-list {
-                border-left: 1px solid #ccc;
-                border-top: 1px solid #ccc;
-                display: flex;
-            }
-            .clone-table {
-                border-collapse: collapse;
-                border: none;
-            }
-            .clone-table th,
-            .clone-table td {
-                border: 1px solid #ccc;
-                border-left: none;
-                border-top: none;
-                padding: 0.5rem;
-            }
-            .dragging {
-                background: #fff;
-                border-left: 1px solid #ccc;
-                border-top: 1px solid #ccc;
-                z-index: 999;
-            }
-        </style>
-    </head>
-    <body>
-        <table id="table" class="table">
-            <thead>
-                <tr>
-                    <th data-type="number"><input type="text" id="th0" value="0"></th>
-                    <th><input type="text" class="thtable" id="th1" value="1"></th>
-                    <th><input type="text" class="thtable" id="th2" value="2"></th>
-                    <th><input type="text" class="thtable" id="th3" value="3"></th>
-                </tr>
-            </thead>
-            
-        </table>
-<script type="text/javascript" src="~/js/Testing/table.js"></script>
-    </body>
+</head>
+
+<body class="hold-transition sidebar-mini">    
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="row">
+          <div class="col-md-12">
+           
+              
+              <!-- /.card-header -->
+              <div class="card-body">
+                <textarea id="summernote">
+                Place <em>some</em> <u>text</u> <strong>here</strong>
+              </textarea>
+              </div>
+              
+            </div>
+       
+          <!-- /.col-->
+        </div>
+
+      </section>
+      <!-- /.content -->
+    </div>
+
+
+  <!-- jQuery -->
+  <script src="~/AdminLTE-3.1.0/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="~/AdminLTE-3.1.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="~/AdminLTE-3.1.0/dist/js/adminlte.min.js"></script>
+  <!-- Summernote -->
+  <script src="~/AdminLTE-3.1.0/plugins/summernote/summernote-bs4.min.js"></script>
+  
+  <!-- AdminLTE for demo purposes -->
+  <script src="~/AdminLTE-3.1.0/dist/js/demo.js"></script>
+  <!-- Page specific script -->
+  <script>
+    $(function () {
+      // Summernote
+      $("#summernote").summernote();
+
+      // CodeMirror
+      CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+        mode: "htmlmixed",
+        theme: "monokai",
+      });
+    });
+  </script>
+</body>
+
 </html>

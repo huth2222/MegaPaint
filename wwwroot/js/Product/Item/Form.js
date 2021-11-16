@@ -1,5 +1,6 @@
 $(document).ready(() => {
-  $("#pic1, #pic2, #pic3, #pic4, #pic5").hide();
+  $("#pic1, #pic2, #pic3, #pic4, #pic5, #img_id").hide();
+  $("input[type='file']").hide();
   $("#img-del").prop("disabled", true);
   // $('#imagePreview').hide();
   
@@ -17,7 +18,7 @@ $(document).ready(() => {
     }else{
       $("#div_color").hide();
       $("#div_color label").removeClass('active');
-      $( "input[name='color_option']").prop('checked',false);
+      $("input[name='color_option']").prop('checked',false);
     }
   });
 
@@ -34,13 +35,14 @@ $(document).ready(() => {
 
   $("#img_del").click(() => {
     $("#" + $("#img_id").val())
-      .attr("src", "")
-      .hide();
+      .attr("src", "").hide();      
+      $("#img_id").val("");
     $("#img_main").attr("src", "/data/system/add_item.png");
     $("#file" + $("#img_id").val()).val("");
     $("#img_del").removeClass("btn-danger");
     $("#img_del").addClass("btn-disabled");
     $("#img_del").html("&nbsp;");
+    //$("#thpic" + $("#img_id").val()).hide();
   });
 
   $("#btn_addpic").click(() => {
@@ -65,7 +67,7 @@ $(document).ready(() => {
       $("#pic1").attr("src", $("#img_main").attr("src"));
       $("#pic1").show();
       $("#img_id").val("pic1");
-      $("#img_row").val("1");
+      // $("#img_row").val("1");
       $("#img_del").prop("disabled", false);
       $("#img_del").addClass("btn-danger");
       $("#img_del").removeClass("btn-disabled");
@@ -78,7 +80,7 @@ $(document).ready(() => {
       $("#pic2").attr("src", $("#img_main").attr("src"));
       $("#pic2").show();
       $("#img_id").val("pic2");
-      $("#img_row").val("2");
+      // $("#img_row").val("2");
       $("#img_del").prop("disabled", false);
       $("#img_del").addClass("btn-danger");
       $("#img_del").removeClass("btn-disabled");
@@ -91,7 +93,7 @@ $(document).ready(() => {
       $("#pic3").attr("src", $("#img_main").attr("src"));
       $("#pic3").show();
       $("#img_id").val("pic3");
-      $("#img_row").val("3");
+      // $("#img_row").val("3");
       $("#img-del").prop("disabled", false);
     }, 100);
   });
@@ -101,7 +103,7 @@ $(document).ready(() => {
       $("#pic4").attr("src", $("#img_main").attr("src"));
       $("#pic4").show();
       $("#img_id").val("pic4");
-      $("#img_row").val("4");
+      // $("#img_row").val("4");
       $("#img-del").prop("disabled", false);
     }, 100);
   });
@@ -111,7 +113,7 @@ $(document).ready(() => {
       $("#pic5").attr("src", $("#img_main").attr("src"));
       $("#pic5").show();
       $("#img_id").val("pic5");
-      $("#img_row").val("5");
+      // $("#img_row").val("5");
       $("#img-del").prop("disabled", false);
     }, 100);
   });
@@ -119,7 +121,7 @@ $(document).ready(() => {
   $("#pic1").click(() => {
     $("#img_main").attr("src", $("#pic1").attr("src"));
     $("#img_id").val("pic1");
-    $("#img_row").val("1");
+    // $("#img_row").val("1");
     $("#img-del").prop("disabled", false);
     $("#img_del").addClass("btn-danger");
     $("#img_del").removeClass("btn-disabled");
@@ -130,7 +132,7 @@ $(document).ready(() => {
   $("#pic2").click(() => {
     $("#img_main").attr("src", $("#pic2").attr("src"));
     $("#img_id").val("pic2");
-    $("#img_row").val("2");
+    // $("#img_row").val("2");
     $("#img-del").prop("disabled", false);
     $("#img_del").addClass("btn-danger");
     $("#img_del").removeClass("btn-disabled");
@@ -141,24 +143,33 @@ $(document).ready(() => {
   $("#pic3").click(() => {
     $("#img_main").attr("src", $("#pic3").attr("src"));
     $("#img_id").val("pic3");
-    $("#img_row").val("3");
+    // $("#img_row").val("3");
     $("#img-del").prop("disabled", false);
+    $("#img_del").addClass("btn-danger");
+    $("#img_del").removeClass("btn-disabled");
+    $("#img_del").html("Delete picture");
     // $('#divpics div').removeClass("active");
     // $('#divpic3').addClass("active");
   });
   $("#pic4").click(() => {
     $("#img_main").attr("src", $("#pic4").attr("src"));
     $("#img_id").val("pic4");
-    $("#img_row").val("4");
+    // $("#img_row").val("4");
     $("#img-del").prop("disabled", false);
+    $("#img_del").addClass("btn-danger");
+    $("#img_del").removeClass("btn-disabled");
+    $("#img_del").html("Delete picture");
     // $('#divpics div').removeClass("active");
     // $('#divpic4').addClass("active");
   });
   $("#pic5").click(() => {
     $("#img_main").attr("src", $("#pic5").attr("src"));
     $("#img_id").val("pic5");
-    $("#img_row").val("5");
+    // $("#img_row").val("5");
     $("#img-del").prop("disabled", false);
+    $("#img_del").addClass("btn-danger");
+    $("#img_del").removeClass("btn-disabled");
+    $("#img_del").html("Delete picture");
     // $('#divpics div').removeClass("active");
     // $('#divpic5').addClass("active");
   });

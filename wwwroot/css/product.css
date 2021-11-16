@@ -1,3 +1,6 @@
+.colortest{
+  color: red;
+}
 .div-main {
   /* height: 500px;
     width: auto; */
@@ -94,47 +97,49 @@
   color: #fff;  
 }
 
-/***********Move Pic************/
-.table {
-  color: red;
-  border: 1px solid #ccc;
-  border-collapse: collapse;
+/******************************/
+.form-gradient .header {
+  border-top-left-radius: .3rem;
+  border-top-right-radius: .3rem;
 }
-.table th,
-.table td {
-  border: 1px solid #ccc;
+.form-gradient input[type=text]:focus:not([readonly]) {
+  border-bottom: 1px solid #fd9267;
+  box-shadow: 0 1px 0 0 #fd9267;
 }
-.table th,
-.table td {
-  padding: 0.5rem;
+.form-gradient input[type=text]:focus:not([readonly]) + label {
+  color: #4f4f4f;
 }
-.draggable {
-  cursor: move;
-  user-select: none;
+.form-gradient textarea.md-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #fd9267;
+  box-shadow: 0 1px 0 0 #fd9267;
 }
-.placeholder {
-  background-color: #edf2f7;
-  border: 2px dashed #cbd5e0;
+.form-gradient .md-form textarea.md-textarea:focus:not([readonly])+label {
+  color: #4f4f4f;
 }
-.clone-list {
-  border-left: 1px solid #ccc;
-  border-top: 1px solid #ccc;
-  display: flex;
+
+
+.form-dark .md-form label {
+  color: #fff;
 }
-.clone-table {
-  border-collapse: collapse;
-  border: none;
+.form-dark input[type=text]:focus:not([readonly]) {
+  border-bottom: 1px solid #00C851;
+  -webkit-box-shadow: 0 1px 0 0 #00C851;
+  box-shadow: 0 1px 0 0 #00C851;
 }
-.clone-table th,
-.clone-table td {
-  border: 1px solid #ccc;
-  border-left: none;
-  border-top: none;
-  padding: 0.5rem;
+.form-dark input[type=text]:focus:not([readonly]) + label {
+  color: #fff;
 }
-.dragging {
-  background: #fff;
-  border-left: 1px solid #ccc;
-  border-top: 1px solid #ccc;
-  z-index: 999;
+.form-dark textarea.md-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #00C851;
+  box-shadow: 0 1px 0 0 #00C851;
+  color: #fff;
+}
+.form-dark textarea.md-textarea  {
+  color: #fff;
+}
+.form-dark .form-control, .form-dark .form-control:focus {
+  color: #fff;
+}
+.form-dark .md-form textarea.md-textarea:focus:not([readonly])+label {
+  color: #fff;
 }

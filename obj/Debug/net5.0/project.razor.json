@@ -15704,11 +15704,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Project\\MegaPaint\\Views\\Test\\Item.cshtml",
-      "TargetPath": "Views\\Test\\Item.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\Project\\MegaPaint\\Views\\Admin\\EditAdminProfile.cshtml",
       "TargetPath": "Views\\Admin\\EditAdminProfile.cshtml",
       "FileKind": "mvc"
@@ -15719,8 +15714,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Project\\MegaPaint\\Views\\Testing\\Item.cshtml",
+      "TargetPath": "Views\\Testing\\Item.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Project\\MegaPaint\\Views\\Shop\\EditShop.cshtml",
       "TargetPath": "Views\\Shop\\EditShop.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\MegaPaint\\Views\\Item\\Index copy.cshtml",
+      "TargetPath": "Views\\Item\\Index copy.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15756,6 +15761,11 @@
     {
       "FilePath": "d:\\Project\\MegaPaint\\Views\\Admin\\Index.cshtml",
       "TargetPath": "Views\\Admin\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Project\\MegaPaint\\Views\\Item\\Index.cshtml",
+      "TargetPath": "Views\\Item\\Index.cshtml",
       "FileKind": "mvc"
     },
     {

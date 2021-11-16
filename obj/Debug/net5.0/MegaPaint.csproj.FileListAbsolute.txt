@@ -192,3 +192,4 @@ D:\Project\TOA\MegaPaint\obj\Debug\net5.0\Razor\Views\Test\Item.cshtml.g.cs
 D:\Project\TOA\MegaPaint\obj\Debug\net5.0\Razor\Views\Item\Index.cshtml.g.cs
 D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Item\Index.cshtml.g.cs
 D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Testing\Item.cshtml.g.cs
+D:\Project\MegaPaint\obj\Debug\net5.0\Razor\Views\Item\Index copy.cshtml.g.cs
