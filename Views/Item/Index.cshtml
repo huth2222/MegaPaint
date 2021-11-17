@@ -11,21 +11,6 @@
   }
 </style>
 
-<!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="~/AdminLTE-3.1.0/plugins/fontawesome-free/css/all.min.css" />
-  <!-- Theme style -->
-  <link rel="stylesheet" href="~/AdminLTE-3.1.0/dist/css/adminlte.min.css" />
-  <!-- summernote -->
-  <link rel="stylesheet" href="~/AdminLTE-3.1.0/plugins/summernote/summernote-bs4.min.css" />
-  <!-- CodeMirror -->
-  <link rel="stylesheet" href="~/AdminLTE-3.1.0/plugins/codemirror/codemirror.css" />
-  <link rel="stylesheet" href="~/AdminLTE-3.1.0/plugins/codemirror/theme/monokai.css" />
-  <!-- SimpleMDE -->
-  <link rel="stylesheet" href="~/AdminLTE-3.1.0/plugins/simplemde/simplemde.min.css" />
-  
 <section class="content">
 
   <!-- Default box -->
@@ -98,10 +83,24 @@
               <input type="text" class="form-control form-control-border border-width-2" id="exampleInputBorder"
                 placeholder="ระบุชื่อสินค้า...">
             </div>
-            <div class="form-group col-12 col-sm-6">
-              <label for="exampleInputBorder"><code>หน่วย</code></label>
-              <input type="text" class="form-control form-control-border border-width-2" id="exampleInputBorder"
-                placeholder="ระบุหน่วย...">
+            <div class="form-group col-12 col-sm-3">
+              <label for="exampleInputBorder"><code>จำนวน</code></label>
+              <input type="number" class="form-control form-control-border border-width-2" id="exampleInputBorder"
+                placeholder="ระบุจำนวน...">
+            </div>
+            <div class="form-group col-12 col-sm-3">
+              <label for="exampleInputBorder" class="text-right"><code>หน่วย</code></label>
+              <div class="input-group">
+                <select class="form-control form-control-border border-width-2">
+                  <option value="">-</option>
+                  <option value="1">กระป๋อง</option>
+                  <option value="2">ลัง</option>
+                </select>
+                <div class="input-group-prepend">
+                  <button class="input-group-text">+</button>
+                </div>
+              </div>
+
             </div>
           </div>
 
@@ -118,18 +117,51 @@
             </div>
             <div class="form-group col-12 col-sm-6">
               <label for="exampleInputBorder"><code>กลุ่มสินค้า</code></label>
-              <select class="form-control form-control-border border-width-2">
-
-
-              </select>
-            </div>
+              <div class="input-group">
+                <select class="form-control form-control-border border-width-2">
+                  <option value="">กรุณาเลือกกลุ่ม</option>
+                  <option value="1">สีภายนอก</option>
+                  <option value="2">สีภายใน</option>
+                </select>
+                <div class="input-group-prepend">
+                  <button class="input-group-text">+</button>
+                </div>
+              </div>
+            </div>            
           </div>
           <div class="row">
             <div class="form-group col-12 col-sm-6">
-              <label for="exampleInputBorder"><code>หน่วย</code></label>
-              <input type="text" class="form-control form-control-border border-width-2" id="exampleInputBorder"
-                placeholder="ระบุหน่วย...">
+              <label for="exampleInputBorder"><code>แบบสินค้า</code></label>
+              <div class="input-group">
+                <select class="form-control form-control-border border-width-2">
+                  <option value="">กรุณาเลือกแบบ</option>
+                  <option value="1">ซุปเปอร์ชิลด์ สีน้ำอะคริลิก ชนิดกึ่งเงา</option>
+                  <option value="2">ซุปเปอร์ชิลด์ ดูราคลีน เอ พลัส สีน้ำอะคริลิก ชนิดกึ่งเงา</option>
+                  <option value="3">โฟร์ซีซั่นส์ ภายนอกและภายใน (กึ่งเงา)</option>
+                </select>
+                <div class="input-group-prepend">
+                  <button class="input-group-text">+</button>
+                </div>
+              </div>
             </div>
+            <div class="form-group col-12 col-sm-6">
+              <div class="form-group form-check">
+                <input id="color_attr" class="form-check-input" type="checkbox">
+                <label class="form-check-label">สี</label>
+              </div>
+
+              <div class="form-group form-check">
+                <input id="size_attr" class="form-check-input" type="checkbox">
+                <label class="form-check-label">ขนาด</label>
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+          <div class="row">
             <div class="form-group col-12 col-sm-6">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox">
@@ -137,30 +169,15 @@
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox">
-                <label class="form-check-label">สินค้า Catagory Kikller</label>
+                <label class="form-check-label">สินค้า Catagory Killer</label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox">
                 <label class="form-check-label">สินค้า Rare Item</label>
               </div>
             </div>
-
-
           </div>
-          <div class="row">
-            <div class="form-group col-12 col-sm-6">
-              <div class="form-group form-check">
-                <input id="color_attr" class="form-check-input" type="checkbox">
-                <label class="form-check-label">สี</label>
-              </div>
-            </div>
-            <div class="form-group col-12 col-sm-6">
-              <div class="form-group form-check">
-                <input id="size_attr" class="form-check-input" type="checkbox">
-                <label class="form-check-label">ขนาด</label>
-              </div>
-            </div>
-          </div>
+
 
 
 
@@ -296,6 +313,13 @@
 
         </div>
       </div>
+      <div id="input_iframe">
+        <button id="btn_iframe">Iframe Value</button>
+        <input type="text" id="frame1">
+        <input type="text" id="frame2">
+        <input type="text" id="frame3">
+      </div>
+
       <div class="row mt-4">
         <nav class="w-100">
           <div class="nav nav-tabs" id="product-tab" role="tablist">
@@ -307,15 +331,17 @@
               aria-controls="product-rating" aria-selected="false">เกี่ยวกับการส่ง และอื่นๆ</a>
           </div>
         </nav>
-        <div class="tab-content p-3" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
-            xxxxxxxxxx
+        <div class="w-100 tab-content p-3" id="nav-tabContent">
+          <div class="w-100 tab-pane fade show active" id="product-desc" role="tabpanel"
+            aria-labelledby="product-desc-tab">
+            <iframe id="frame_1" src="/Testing/Item" frameborder="0" style="width: 100%;height: 500px;"></iframe>
           </div>
-          <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">
-            ทางเทคนิคแล้ว เขาห้ามเล่น ห้ามกิน และห้ามใช้
-            บลาๆๆๆๆๆ</div>
-          <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
-            ขนส่งด้วยเครื่องบินเจ็ท บลาๆๆๆๆๆ</div>
+          <div class="w-100 tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">
+            <iframe id="frame_2" src="/Testing/Item" frameborder="0" style="width: 100%;height: 500px;"></iframe>
+          </div>
+          <div class="w-100 tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
+            <iframe id="frame_3" src="/Testing/Item" frameborder="0" style="width: 100%;height: 500px;"></iframe>
+          </div>
         </div>
       </div>
       <!-- /.card-body -->
@@ -324,65 +350,7 @@
 
 </section>
 
-<section class="content">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card card-outline card-info">
-        <div class="card-header">
-          <h3 class="card-title">Summernote</h3>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body">
-                <textarea id="summernote">
-                Place <em>some</em> <u>text</u> <strong>here</strong>
-              </textarea>
-              </div>
-        <div class="card-footer">
-          Visit
-          <a href="https://github.com/summernote/summernote/">Summernote</a>
-          documentation for more examples and information about the
-          plugin.
-        </div>
-      </div>
-    </div>
-    <!-- /.col-->
-  </div>
-  <!-- ./row -->
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card card-outline card-info">
-        <div class="card-header">
-          <h3 class="card-title">CodeMirror</h3>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body p-0">
-          <textarea id="codeMirrorDemo" class="p-3">
-            <div class="info-box bg-gradient-info">
-              <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-text">Bookmarks</span>
-                <span class="info-box-number">41,410</span>
-                <div class="progress">
-                  <div class="progress-bar" style="width: 70%"></div>
-                </div>
-                <span class="progress-description">
-                  70% Increase in 30 Days
-                </span>
-              </div>
-            </div>
-            </textarea>
-        </div>
-        <div class="card-footer">
-          Visit
-          <a href="https://codemirror.net/">CodeMirror</a> documentation
-          for more examples and information about the plugin.
-        </div>
-      </div>
-    </div>
-    <!-- /.col-->
-  </div>
-  <!-- ./row -->
-</section>
+
 
 <script src="~/js/Product/Item/Fuc.js"></script>
 <script src="~/js/Product/Item/Form.js"></script>
@@ -397,31 +365,53 @@
   $('.table').dragableColumns();
 </script>
 
+@* ************************************************************* *@
 
-<script src="~/AdminLTE-3.1.0/plugins/jquery/jquery.min.js"></script>
-  <!-- Bootstrap 4 -->
-  <script src="~/AdminLTE-3.1.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="~/AdminLTE-3.1.0/dist/js/adminlte.min.js"></script>
+
+@* <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+
+
+  <!-- Main content -->
+  <section class="content">
+  <div class="row">
+  <div class="col-md-12">
+
+
+  <!-- /.card-header -->
+  <div class="card-body">
+  <textarea id="summernote">
+  Place <em>some</em> <u>text</u> <strong>here</strong>
+  </textarea>
+  </div>
+
+  </div>
+
+  <!-- /.col-->
+  </div>
+
+  </section>
+  <!-- /.content -->
+  </div>
+
+
+
   <!-- Summernote -->
   <script src="~/AdminLTE-3.1.0/plugins/summernote/summernote-bs4.min.js"></script>
-  <!-- CodeMirror -->
-  <script src="~/AdminLTE-3.1.0/plugins/codemirror/codemirror.js"></script>
-  <script src="~/AdminLTE-3.1.0/plugins/codemirror/mode/css/css.js"></script>
-  <script src="~/AdminLTE-3.1.0/plugins/codemirror/mode/xml/xml.js"></script>
-  <script src="~/AdminLTE-3.1.0/plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
   <!-- AdminLTE for demo purposes -->
   <script src="~/AdminLTE-3.1.0/dist/js/demo.js"></script>
   <!-- Page specific script -->
   <script>
-    $(function () {
-      // Summernote
-      $("#summernote").summernote();
+  $(function () {
+  // Summernote
+  $("#summernote").summernote();
 
-      // CodeMirror
-      CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-        mode: "htmlmixed",
-        theme: "monokai",
-      });
-    });
-  </script>
+  // CodeMirror
+  CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+  mode: "htmlmixed",
+  theme: "monokai",
+  });
+  });
+  </script> *@

@@ -1,8 +1,29 @@
 $(document).ready(() => {
-  $("#pic1, #pic2, #pic3, #pic4, #pic5, #img_id").hide();
+
+  $("#btn_iframe").click(()=>{
+    $("#frame1").val($( "#frame_1" ).contents().find("#summernote").val());
+
+    $("#frame2").val($( "#frame_2" ).contents().find("#summernote").val());
+
+    $("#frame3").val($( "#frame_3" ).contents().find("#summernote").val());
+  });
+    
+
+  
+  
+  // $.ajax({
+  //   url: "/Testing/Item",
+  //   type: "GET",
+  //   success: function (data) {
+  //     $("#comm").html(data);
+  //   },
+  // });
+
+  // $("#pic1, #pic2, #pic3, #pic4, #pic5").hide();
+  $("#pic1, #pic2, #pic3, #pic4, #pic5, #img_id, #input_iframe").hide();
   $("input[type='file']").hide();
   $("#img-del").prop("disabled", true);
-  // $('#imagePreview').hide();
+
   
 
   $("#img_del").prop("disabled", true);
@@ -34,11 +55,13 @@ $(document).ready(() => {
 
 
   $("#img_del").click(() => {
-    $("#" + $("#img_id").val())
-      .attr("src", "").hide();      
-      $("#img_id").val("");
+    $("#" + $("#img_id").val()).attr("src", "").hide();     
+    
     $("#img_main").attr("src", "/data/system/add_item.png");
-    $("#file" + $("#img_id").val()).val("");
+    $("#filepic" + $("#img_id").val()).val("");
+    //alert();
+    $('#file' + $("#img_id").val()).val("");
+    $("#img_id").val("");
     $("#img_del").removeClass("btn-danger");
     $("#img_del").addClass("btn-disabled");
     $("#img_del").html("&nbsp;");
@@ -227,22 +250,10 @@ $(document).ready(() => {
 
     $("tr").css("color", "#000");
 
-    // if($('#b_form').hasClass("card-info")){
-    //   $('#class_form').removeClass("card-info")
-    // }
+
   });
 
-  // $('#b_form_edit').click(()=>{
-  //   if($('#active_form').val() == 'edit'){
-  //     $('#b_form_cancel').click();
-  //     $('#active_form').val('')
-  //     $('tr').css('color','#000');
-  //     $('#l_form_edit').hide();
-  //     return false;
-  //   }else{
-  //     $('#active_form').val('edit')
-  //   }
-  // });
+  
 
   $("#b_form").click(() => {
     if ($("#btn_submit").html() == "Edit") {

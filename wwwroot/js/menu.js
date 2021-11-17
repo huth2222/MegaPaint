@@ -1,5 +1,5 @@
 ﻿$(document).ready(() => {
-    /************* Form Admin */
+  /************* Form Admin */
   $("#temp_number").val(0);
   let temp_number = $("#temp_number").val();
   temp_number = parseInt(temp_number);
@@ -42,69 +42,68 @@
     }
   });
 
-/**************** Form Seller */
-$("#s_add_seller").click(() => {
-  if ($("#page").val() != "add_seller") {
-    $("#div_index").empty();
-    GetMenuAddSeller();
-    GetPageAddSeller("/Seller/AddSeller");
-  }
-});
+  /**************** Form Seller */
+  $("#s_add_seller").click(() => {
+    if ($("#page").val() != "add_seller") {
+      $("#div_index").empty();
+      GetMenuAddSeller();
+      GetPageAddSeller("/Seller/AddSeller");
+    }
+  });
 
-$("#s_edit_seller").click(() => {
-  if ($("#page").val() != "edit_seller") {
-    $("#div_index").empty();
-    // setTimeout(() => {
-    //     GetAdminTable("edit","empty");
-    // }, 500);
-    GetMenuEditSeller();
-    GetPageEditSeller("/Seller/EditSeller");
-  }
-});
+  $("#s_edit_seller").click(() => {
+    if ($("#page").val() != "edit_seller") {
+      $("#div_index").empty();
+      // setTimeout(() => {
+      //     GetAdminTable("edit","empty");
+      // }, 500);
+      GetMenuEditSeller();
+      GetPageEditSeller("/Seller/EditSeller");
+    }
+  });
 
+  /**************** Form Product Catetgory */
+  $("#s_pd_category").click(() => {
+    if ($("#page").val() != "pd_category") {
+      $("#div_index").empty();
+      GetMenuPdCategory();
+      GetPagePdCategory("/Category/Index");
+    }
+  });
 
-/**************** Form Product Catetgory */
-$("#s_pd_category").click(() => {
-  if ($("#page").val() != "pd_category") {
-    $("#div_index").empty();
-    GetMenuPdCategory();
-    GetPagePdCategory("/Category/Index");
-  }
-});
+  /**************** Form Product Group */
+  $("#s_pd_group").click(() => {
+    if ($("#page").val() != "pd_group") {
+      $("#div_index").empty();
+      GetMenuPdGroup();
+      GetPagePdGroup("/Group/Index");
+    }
+  });
 
-/**************** Form Product Group */
-$("#s_pd_group").click(() => {
-  if ($("#page").val() != "pd_group") {
-    $("#div_index").empty();
-    GetMenuPdGroup();
-    GetPagePdGroup("/Group/Index");
-  }
-});
+  /**************** Form Item */
+  $("#s_pd_item").click(() => {
+    if ($("#page").val() != "pd_item") {
+      $("#div_index").empty();
+      GetMenuPdItem();
+      GetPagePdItem("/Item/Index");
+    }
+  });
 
-/**************** Form Item */
-$("#s_pd_item").click(() => {
-  if ($("#page").val() != "pd_item") {
-    $("#div_index").empty();
-    GetMenuPdItem();    
-    GetPagePdItem("/Item/Index");
-  }
-});
+  /**************** Form Shop */
+  $("#s_pd_test").click(() => {
+    alert();
+    if ($("#page").val() != "pd_item") {
+      $("#div_index").empty();
+      GetMenuPdTest();
+      GetPagePdTest("/Item/Index");
+    }
+  });
 
-/**************** Form Shop */
-$("#s_pd_test").click(() => {
-  alert();
-  if ($("#page").val() != "pd_item") {
-    $("#div_index").empty();
-    GetMenuPdTest();
-    GetPagePdTest("/Item/Index");
-  }
-});
-
-
-
-  
   /*vvv*********************** Active class */
 });
+
+
+
 function ControlSidebar() {
   $("#control_sidebar").click();
 }
@@ -115,12 +114,14 @@ function GetMenuAddAdmin() {
   //$('#m_admin').addClass('active');
   $("#s_add_admin").addClass("active");
   setTimeout(() => {
-    if ($("#nav_shop").hasClass("menu-is-opening menu-open")) {
-      $("#m_shop").click();
+    
+    for (let i = 0; i < item.length; i++) {
+      if($("ul.nav-pills").find(item[i]).attr("id") != "nav_admin"){
+        let m = $("ul.nav-pills").find(item[i]).attr("id").substring(4);
+        $("#m_"+m).click();
+      }
     }
-    if ($("#nav_seller").hasClass("menu-is-opening menu-open")) {
-      $("#m_seller").click();
-    }
+
   }, 1000);
 }
 
@@ -130,12 +131,14 @@ function GetMenuEditAdmin() {
   //$('#m_admin').addClass('active');
   $("#s_edit_admin").addClass("active");
   setTimeout(() => {
-    if ($("#nav_shop").hasClass("menu-is-opening menu-open")) {
-      $("#m_shop").click();
+    
+    for (let i = 0; i < item.length; i++) {
+      if($("ul.nav-pills").find(item[i]).attr("id") != "nav_admin"){
+        let m = $("ul.nav-pills").find(item[i]).attr("id").substring(4);
+        $("#m_"+m).click();
+      }
     }
-    if ($("#nav_seller").hasClass("menu-is-opening menu-open")) {
-      $("#m_seller").click();
-    }
+
   }, 1000);
 }
 
@@ -145,12 +148,14 @@ function GetMenuAddShop() {
   //$('#m_shop').addClass('active');
   $("#s_add_shop").addClass("active");
   setTimeout(() => {
-    if ($("#nav_admin").hasClass("menu-is-opening menu-open")) {
-      $("#m_admin").click();
+    var item = $("li.menu-open");
+    for (let i = 0; i < item.length; i++) {
+      if($("ul.nav-pills").find(item[i]).attr("id") != "nav_shop"){
+        let m = $("ul.nav-pills").find(item[i]).attr("id").substring(4);
+        $("#m_"+m).click();
+      }
     }
-    if ($("#nav_seller").hasClass("menu-is-opening menu-open")) {
-      $("#m_seller").click();
-    }
+
   }, 1000);
 }
 
@@ -160,12 +165,15 @@ function GetMenuEditShop() {
   //$('#m_shop').addClass('active');
   $("#s_edit_shop").addClass("active");
   setTimeout(() => {
-    if ($("#nav_admin").hasClass("menu-is-opening menu-open")) {
-      $("#m_admin").click();
+
+    var item = $("li.menu-open");
+    for (let i = 0; i < item.length; i++) {
+      if($("ul.nav-pills").find(item[i]).attr("id") != "nav_shop"){
+        let m = $("ul.nav-pills").find(item[i]).attr("id").substring(4);
+        $("#m_"+m).click();
+      }
     }
-    if ($("#nav_seller").hasClass("menu-is-opening menu-open")) {
-      $("#m_seller").click();
-    }
+
   }, 1000);
 }
 
@@ -175,12 +183,14 @@ function GetMenuAddSeller() {
   //$('#m_shop').addClass('active');
   $("#s_add_seller").addClass("active");
   setTimeout(() => {
-    if ($("#nav_admin").hasClass("menu-is-opening menu-open")) {
-      $("#m_admin").click();
+    var item = $("li.menu-open");
+    for (let i = 0; i < item.length; i++) {
+      if($("ul.nav-pills").find(item[i]).attr("id") != "nav_seller"){
+        let m = $("ul.nav-pills").find(item[i]).attr("id").substring(4);
+        $("#m_"+m).click();
+      }
     }
-    if ($("#nav_shop").hasClass("menu-is-opening menu-open")) {
-      $("#m_shop").click();
-    }
+
   }, 1000);
 }
 
@@ -190,12 +200,14 @@ function GetMenuEditSeller() {
   //$('#m_shop').addClass('active');
   $("#s_edit_seller").addClass("active");
   setTimeout(() => {
-    if ($("#nav_admin").hasClass("menu-is-opening menu-open")) {
-      $("#m_admin").click();
+    var item = $("li.menu-open");
+    for (let i = 0; i < item.length; i++) {
+      if($("ul.nav-pills").find(item[i]).attr("id") != "nav_seller"){
+        let m = $("ul.nav-pills").find(item[i]).attr("id").substring(4);
+        $("#m_"+m).click();
+      }
     }
-    if ($("#nav_shop").hasClass("menu-is-opening menu-open")) {
-      $("#m_shop").click();
-    }
+
   }, 1000);
 }
 
@@ -205,15 +217,14 @@ function GetMenuPdCategory() {
   //$('#m_shop').addClass('active');
   $("#s_pd_category").addClass("active");
   setTimeout(() => {
-    if ($("#nav_admin").hasClass("menu-is-opening menu-open")) {
-      $("#m_admin").click();
+    var item = $("li.menu-open");
+    for (let i = 0; i < item.length; i++) {
+      if($("ul.nav-pills").find(item[i]).attr("id") != "nav_product"){
+        let m = $("ul.nav-pills").find(item[i]).attr("id").substring(4);
+        $("#m_"+m).click();
+      }
     }
-    if ($("#nav_shop").hasClass("menu-is-opening menu-open")) {
-      $("#m_shop").click();
-    }
-    if ($("#nav_seller").hasClass("menu-is-opening menu-open")) {
-      $("#m_seller").click();
-    }
+
   }, 1000);
 }
 
@@ -223,15 +234,14 @@ function GetMenuPdGroup() {
   //$('#m_shop').addClass('active');
   $("#s_pd_group").addClass("active");
   setTimeout(() => {
-    if ($("#nav_admin").hasClass("menu-is-opening menu-open")) {
-      $("#m_admin").click();
+    var item = $("li.menu-open");
+    for (let i = 0; i < item.length; i++) {
+      if($("ul.nav-pills").find(item[i]).attr("id") != "nav_product"){
+        let m = $("ul.nav-pills").find(item[i]).attr("id").substring(4);
+        $("#m_"+m).click();
+      }
     }
-    if ($("#nav_shop").hasClass("menu-is-opening menu-open")) {
-      $("#m_shop").click();
-    }
-    if ($("#nav_seller").hasClass("menu-is-opening menu-open")) {
-      $("#m_seller").click();
-    }  
+    
   }, 1000);
 }
 
@@ -241,15 +251,14 @@ function GetMenuPdItem() {
   //$('#m_shop').addClass('active');
   $("#s_pd_item").addClass("active");
   setTimeout(() => {
-    if ($("#nav_admin").hasClass("menu-is-opening menu-open")) {
-      $("#m_admin").click();
+    var item = $("li.menu-open");
+    for (let i = 0; i < item.length; i++) {
+      if($("ul.nav-pills").find(item[i]).attr("id") != "nav_product"){
+        let m = $("ul.nav-pills").find(item[i]).attr("id").substring(4);
+        $("#m_"+m).click();
+      }
     }
-    if ($("#nav_shop").hasClass("menu-is-opening menu-open")) {
-      $("#m_shop").click();
-    }
-    if ($("#nav_seller").hasClass("menu-is-opening menu-open")) {
-      $("#m_seller").click();
-    }  
+
   }, 1000);
 }
 
