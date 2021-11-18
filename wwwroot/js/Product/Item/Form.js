@@ -1,43 +1,43 @@
 $(document).ready(() => {
-  
-  $('#idtest').change(()=>{
+
+  $('#idtest').change(() => {
     $('#idtest').width();
   });
 
-  $('#myInput').blur(()=>{
+  $('#myInput').blur(() => {
     setTimeout(() => {
       $('#list').hide();
     }, 500);
-    
+
   });
   $('#list').hide();
-  $('#myInput').keyup(()=>{
-    if($('#myInput').val().length > 0){
+  $('#myInput').keyup(() => {
+    if ($('#myInput').val().length > 0) {
       $('#list').slideDown('fast');
-    }else if($('#myInput').val().length == 0){
+    } else if ($('#myInput').val().length == 0) {
       $('#list').hide();
-    }    
+    }
   });
-  $('#myInput').focus(()=>{
-    if($('#myInput').val().length > 0){
+  $('#myInput').focus(() => {
+    if ($('#myInput').val().length > 0) {
       $('#list').slideDown('fast');
-    }else if($('#myInput').val().length == 0){
+    } else if ($('#myInput').val().length == 0) {
       $('#list').hide();
-    }    
+    }
   });
 
 
-  $("#btn_iframe").click(()=>{
-    $("#frame1").val($( "#frame_1" ).contents().find("#summernote").val());
+  $("#btn_iframe").click(() => {
+    $("#frame1").val($("#frame_1").contents().find("#summernote").val());
 
-    $("#frame2").val($( "#frame_2" ).contents().find("#summernote").val());
+    $("#frame2").val($("#frame_2").contents().find("#summernote").val());
 
-    $("#frame3").val($( "#frame_3" ).contents().find("#summernote").val());
+    $("#frame3").val($("#frame_3").contents().find("#summernote").val());
   });
-    
 
-  
-  
+
+
+
   // $.ajax({
   //   url: "/Testing/Item",
   //   type: "GET",
@@ -51,7 +51,7 @@ $(document).ready(() => {
   $("input[type='file']").hide();
   $("#img-del").prop("disabled", true);
 
-  
+
 
   $("#img_del").prop("disabled", true);
   $("#img_del").removeClass("btn-danger");
@@ -60,61 +60,75 @@ $(document).ready(() => {
   $("#div_color").hide();
   $("#div_size").hide();
 
-  $('#selectmulti').change(()=>{
+  $('#selectmulti').change(() => {
     // alert($('#selectmulti').val());
     var AttrItem = [];
     AttrItem = $('#selectmulti').val()
-    // $.each(AttrItem,function(i,data){
-    //   if(data == "color"){
-    //     $("#div_color").show();
-    //   }else{
-    //     $("#div_color").hide();
-    //     $("#div_color label").removeClass('active');
-    //     $("input[name='color_option']").prop('checked',false);
-    //   }
 
-    //   if(data == "size"){
-    //     $("#div_size").show();
-    //   }else{
-    //     $("#div_size").hide();
-    //     $("#div_size label").removeClass('active');
-    //     $( "input[name='size_option']").prop('checked',false);
-    //   }
-
-    // });
-    if(AttrItem.indexOf("color") > 0){
-      $("#div_color").show();
-    }else{
+    if (AttrItem == null) {
       $("#div_color").hide();
       $("#div_color label").removeClass('active');
-      $("input[name='color_option']").prop('checked',false);
-    }
-  });
+      $("input[name='color_option']").prop('checked', false);
 
-  $('#color_attr').change(()=>{    
-    if($('#color_attr').is(':checked')){
-      $("#div_color").show();
-    }else{
-      $("#div_color").hide();
-      $("#div_color label").removeClass('active');
-      $("input[name='color_option']").prop('checked',false);
-    }
-  });
-
-  $('#size_attr').change(()=>{
-    if($('#size_attr').is(':checked')){
-      $("#div_size").show();
-    }else{
       $("#div_size").hide();
       $("#div_size label").removeClass('active');
-      $( "input[name='size_option']").prop('checked',false);
+      $("input[name='size_option']").prop('checked', false);
+    } else {
+
+      var div_color = "";
+      var div_size = "";
+      $.each(AttrItem, function (i, data) {
+        if (data == "color") {
+          div_color = "color";
+        }
+
+        if (data == "size") {
+          div_size = "size";
+        }
+      });
+
+      if (div_color == "color") {
+        $("#div_color").show();
+      } else {
+        $("#div_color").hide();
+        $("#div_color label").removeClass('active');
+        $("input[name='color_option']").prop('checked', false);
+      }
+
+      if (div_size == "size") {
+        $("#div_size").show();
+      } else {
+        $("#div_size").hide();
+        $("#div_size label").removeClass('active');
+        $("input[name='size_option']").prop('checked', false);
+      }
+    }
+  });
+
+  $('#color_attr').change(() => {
+    if ($('#color_attr').is(':checked')) {
+      $("#div_color").show();
+    } else {
+      $("#div_color").hide();
+      $("#div_color label").removeClass('active');
+      $("input[name='color_option']").prop('checked', false);
+    }
+  });
+
+  $('#size_attr').change(() => {
+    if ($('#size_attr').is(':checked')) {
+      $("#div_size").show();
+    } else {
+      $("#div_size").hide();
+      $("#div_size label").removeClass('active');
+      $("input[name='size_option']").prop('checked', false);
     }
   });
 
 
   $("#img_del").click(() => {
-    $("#" + $("#img_id").val()).attr("src", "").hide();     
-    
+    $("#" + $("#img_id").val()).attr("src", "").hide();
+
     $("#img_main").attr("src", "/data/system/add_item.png");
     $("#filepic" + $("#img_id").val()).val("");
     //alert();
@@ -311,7 +325,7 @@ $(document).ready(() => {
 
   });
 
-  
+
 
   $("#b_form").click(() => {
     if ($("#btn_submit").html() == "Edit") {
